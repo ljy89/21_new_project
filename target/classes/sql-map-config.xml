@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.green.biz.dto.StudentVO" alias="student"></typeAlias>	
+		<typeAlias type="com.green.biz.dto.SubjectVO" alias="subject"></typeAlias>
+		<typeAlias type="com.green.biz.dto.CartVO" alias="cart"></typeAlias>	
+		<typeAlias type="com.green.biz.dto.RegisterVO" alias="register"></typeAlias>		
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mappings/student-mapping.xml" />
+		<mapper resource="mappings/subject-mapping.xml" />
+		<mapper resource="mappings/cart-mapping.xml" />
+		<mapper resource="mappings/register-mapping.xml" />
+	</mappers>
+</configuration>

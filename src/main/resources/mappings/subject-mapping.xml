@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mappings.subject-mapping">
+
+	<!-- 전공 과목 조회 이름으로 정렬-->
+	<select id="getMajor" resultType="subject">
+		SELECT s.name, p.name, s.time, d.name
+		FROM subject s, professor p, department d
+		WHERE s.majoryn = 'y'
+		AND s.dseq = d.dseq
+		AND p.id = s.id
+		ORDER BY name DESC
+	</select>
+	
+
+	<!-- 교양과목 조회 이름으로 정렬 -->
+	<select id="getLiberalArts" resultType="subject">
+		SELECT s.name, p.name, s.time, d.name
+		FROM subject s, professor p, department d
+		WHERE s.majoryn = 'n'
+		AND s.dseq = d.dseq
+		AND p.id = s.id
+		ORDER BY name DESC
+	</select>
+	
+	<!-- 상세페이지 -->
+	<select id="getSubject" resultType="subject">
+		SELECT s.name, p.name, s.content, s.time, s.location, s.number, d.name
+		FROM subject s, professor p, department d
+		WHERE sseq=#{sseq}
+		AND s.majoryn = 'n'
+		AND s.dseq = d.dseq
+		AND p.id = s.id
+	</select>
+	
+	<!-- 교수명, 과목명으로 검색했을때 결과 -->
+	
+	<!-- 수업 추가 -->
+	
+	<insert id="insertSubject">
+		INSERT INTO subject(sseq, name, id, time, majoryn, content, dseq, location, number)
+		VALUES(subject_seq.NEXTVAL, #{name}, #{id}, #{time}, #{majoryn}, #{content}, #{dseq}, #{location}, #{number})
+	</insert>
+	
+	<!-- 수업 수정 -->
+	<update id="updateSubject">
+		UPDATE subject 
+		SET name= #{name}, id=#{id} , time =#{time}, majoryn =#{majoryn}, content =#{content} , dseq=#{dseq}, location =#{location}, number=#{number}
+		WHERE sseq=#{sseq} 
+	</update>
+	
+	<!-- 수업 삭제 -->
+	
+	<delete id="deleteSubject">
+		DELETE FROM cart
+		WHERE sseq=#{sseq}
+	</delete>
+</mapper>

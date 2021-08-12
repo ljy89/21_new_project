@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StudentDAO">
+
+	<!-- 한명 조회 -->
+	<select id="getStudent" resultType="student">
+		SELECT * FROM student
+		WHERE id=#{id}
+	</select>
+	
+	<!-- 모두 조회 -->
+	<select id="StdentList" resultType="student">
+		SELECT * FROM student 
+	</select>
+	
+	<!-- id 확인 -->
+	<select id="confirmID" resultType="String">
+		SELECT pwd FROM student
+		WHERE id=#{id}
+	</select>
+	
+	<!--  학생 추가 -->
+	<insert id="insertMember">
+		INSERT INTO student(id,name, email, dseq, phone, image, pwd)
+		VALUES(#{id}, #{name}, #{email}, #{dseq}, #{phone}, #{image}, #{pwd})
+	</insert>
+	
+	<!-- 정보 수정 -->
+	<update id="updateStudent">
+	
+		UPDATE student SET email=#{email}, phone=#{phone}, image=#{imange}, pwd=#{pwd}      
+		WHERE id=#{id}
+	
+	</update>
+	
+	<!-- 성적 확인 -->
+	<select id="selectScore" resultType="String">
+		SELCET s.name, r.score
+		FROM student t, subject s, register r
+		WHERE t.id = r.id 
+		AND r.sseq = s.sseq
+		AND t.id = #{id}
+	</select>
+	
+</mapper>
