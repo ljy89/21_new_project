@@ -2,13 +2,16 @@ package com.green.biz.dto;
 
 public class AdminVO {
 
-	private String id;
+	private String admin_id;
 	private String pwd;
-	public String getId() {
-		return id;
+	private String type;
+	
+	
+	public String getAdmin_id() {
+		return admin_id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
 	}
 	public String getPwd() {
 		return pwd;
@@ -16,10 +19,19 @@ public class AdminVO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	@Override
 	public String toString() {
-		return "AdminVO [id=" + id + ", pwd=" + pwd + "]";
+		return "AdminVO [admin_id=" + admin_id + ", pwd=" + pwd + ", type=" + type + "]";
 	}
+	
+	
+	
 	
 	
 }

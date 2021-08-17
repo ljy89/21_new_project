@@ -8,7 +8,8 @@ public class QnaVO {
 	private String subject;
 	private String content;
 	private String reply;
-	private String id;
+	private String sid;
+	private String admin_id;
 	private String rep;
 	private Timestamp indate;
 	public int getQseq() {
@@ -35,11 +36,17 @@ public class QnaVO {
 	public void setReply(String reply) {
 		this.reply = reply;
 	}
-	public String getId() {
-		return id;
+	public String getSid() {
+		return sid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
+	public String getAdmin_id() {
+		return admin_id;
+	}
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
 	}
 	public String getRep() {
 		return rep;
@@ -55,9 +62,10 @@ public class QnaVO {
 	}
 	@Override
 	public String toString() {
-		return "QnaVO [qseq=" + qseq + ", subject=" + subject + ", content=" + content + ", reply=" + reply + ", id="
-				+ id + ", rep=" + rep + ", indate=" + indate + "]";
+		return "QnaVO [qseq=" + qseq + ", subject=" + subject + ", content=" + content + ", reply=" + reply + ", sid="
+				+ sid + ", admin_id=" + admin_id + ", rep=" + rep + ", indate=" + indate + "]";
 	}
+	
 	
 	
 	

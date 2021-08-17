@@ -3,43 +3,42 @@
 <mapper namespace="StudentDAO">
 
 	<!-- 한명 조회 -->
-	<select id="getStudent" resultType="student">
-		SELECT * FROM student
-		WHERE id=#{id}
+	<select id="getStudent" resultType="student" parameterType="String">
+		SELECT s.id sid, 
+				s.name sname, 
+				s.email email, 
+				d.name dname, 
+				s.phone phone
+		FROM student s, department d
+		WHERE d.dseq = s.dseq
+			AND s.id=#{sid}
 	</select>
 	
 	<!-- 모두 조회 -->
-	<select id="StdentList" resultType="student">
-		SELECT * FROM student 
+	<select id="getStdentList" resultType="student">
+		SELECT s.id sid, s.name sname, s.email semail, d.name dname, s.phone phone
+		FROM student s, department d
+		WHERE d.dseq = s.dseq
 	</select>
 	
-	<!-- id 확인 -->
-	<select id="confirmID" resultType="String">
+	<!--로그인시 id 확인 -->
+	<select id="confirmID" resultType="String" parameterType="String">
 		SELECT pwd FROM student
-		WHERE id=#{id}
+		WHERE id=#{sid}
 	</select>
 	
 	<!--  학생 추가 -->
-	<insert id="insertMember">
-		INSERT INTO student(id,name, email, dseq, phone, image, pwd)
-		VALUES(#{id}, #{name}, #{email}, #{dseq}, #{phone}, #{image}, #{pwd})
+	<insert id="insertStudent" >
+		INSERT INTO student(id,name, email, dseq, phone, pwd)
+		VALUES(#{sid}, #{sname}, #{email}, #{dseq}, #{phone}, #{pwd})
 	</insert>
 	
 	<!-- 정보 수정 -->
 	<update id="updateStudent">
 	
-		UPDATE student SET email=#{email}, phone=#{phone}, image=#{imange}, pwd=#{pwd}      
-		WHERE id=#{id}
+		UPDATE student SET email=#{email}, phone=#{phone}    
+		WHERE id=#{sid}
 	
 	</update>
-	
-	<!-- 성적 확인 -->
-	<select id="selectScore" resultType="String">
-		SELCET s.name, r.score
-		FROM student t, subject s, register r
-		WHERE t.id = r.id 
-		AND r.sseq = s.sseq
-		AND t.id = #{id}
-	</select>
 	
 </mapper>

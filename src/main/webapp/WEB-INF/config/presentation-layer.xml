@@ -15,10 +15,15 @@
 	<mvc:resources location="/WEB-INF/resources/images/" mapping="/images/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/product_images/" mapping="/product_images/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/views/member/" mapping="/member/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/views/product/" mapping="/product/**"></mvc:resources>
-	<mvc:resources location="/WEB-INF/views/mypage/" mapping="/mypage/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/" mapping="/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/admin/" mapping="/admin/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/notice/" mapping="/notice/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/professor/" mapping="/professor/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/qna/" mapping="/qna/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/score/" mapping="/score/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/student/" mapping="/student/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/subject/" mapping="/subject/**"></mvc:resources>
+	
 	
 	<!-- jsp 소스 View Resolver -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

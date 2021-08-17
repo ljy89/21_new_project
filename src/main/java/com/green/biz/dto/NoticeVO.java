@@ -7,8 +7,11 @@ public class NoticeVO {
 	private int nseq;
 	private String subject;
 	private String content;
-	private String id;
+	private String sid;
 	private Timestamp indate;
+	private String admin_id;
+	
+	
 	public int getNseq() {
 		return nseq;
 	}
@@ -27,11 +30,11 @@ public class NoticeVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getId() {
-		return id;
+	public String getSid() {
+		return sid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
 	public Timestamp getIndate() {
 		return indate;
@@ -39,11 +42,18 @@ public class NoticeVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
+	public String getAdmin_id() {
+		return admin_id;
+	}
+	public void setAdmin_id(String admin_id) {
+		this.admin_id = admin_id;
+	}
 	@Override
 	public String toString() {
-		return "NoticeVO [nseq=" + nseq + ", subject=" + subject + ", content=" + content + ", id=" + id + ", indate="
-				+ indate + "]";
+		return "NoticeVO [nseq=" + nseq + ", subject=" + subject + ", content=" + content + ", sid=" + sid + ", indate="
+				+ indate + ", admin_id=" + admin_id + "]";
 	}
+	
 	
 	
 }

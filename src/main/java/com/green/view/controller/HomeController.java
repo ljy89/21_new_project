@@ -10,6 +10,6 @@ public class HomeController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String home() {
 		
-		return "index"; // index.jsp 파일 출력
+		return "index"; // index.jsp 
 	}
 }

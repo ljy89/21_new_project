@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeDAO">
+	
+	<!--게시글 모두 조회 -->
+	<select id="getNoticeList" resultType="notice">
+		SELECT * 
+		FROM notice
+	
+	</select>
+	
+	<!-- 제목,작성자 검색 -->
+	<select id="noticeByTitleId" parameterType="String" resultType="notice">
+		SELECT *
+		  FROM notice
+		 WHERE id LIKE '%'||#{id}||'%'
+		  AND  title LIKE '%'||#{title}||'%'
+		 ORDER BY nseq DESC 
+	</select>
+	
+	<!-- 상세 보기 -->
+	<select id="getNotice">
+		SELECT * FROM notice
+		 WHERE nseq=#{nseq}
+	</select>
+	
+	<!-- 수정 -->
+	<update id="updateNotice">
+		UPDATE notice SET title=#{title} , content=#{content}
+		 WHERE nseq=#{nseq} 
+	</update>
+	
+	
+	<!-- 등록 -->
+	<insert id="insertNotice">
+		INSERT INTO notice(nseq, title, content, id)
+		VALUES(notice_seq.NEXTVAL, #{title}, #{content}, #{id})
+	</insert>
+	
+	<!-- 삭제 -->
+	<delete id="deleteNotice">
+		DELETE FROM notice
+		WHERE nseq=#{nseq}
+	</delete>
+</mapper>

@@ -7,77 +7,66 @@
 <head>
   <meta charset="UTF-8">
   <title>학사관리 시스템</title>
-  <link rel="stylesheet" href="css/shopping.css" >  
+  <link rel="stylesheet" href="css/system.css" >  
   <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script> 
-  <script type="text/javascript" src="member/member.js"></script>
-  <script type="text/javascript" src="product/product.js"></script>
-  <script type="text/javascript" src="member/findIdAndPassword.js"></script>
-  <script type="text/javascript" src="mypage/mypage.js"></script> 
+   <script type="text/javascript" src="student/member.js"></script>
+  <script type="text/javascript" src="slide.js"></script>
 </head>
 
 <body>
 <div id="wrap">
 <!--헤더파일 들어가는 곳 시작 -->
   <header>
-    <!--로고 들어가는 곳 시작--->  
-    <div id="logo">
-      <a href="index">
-        <img src="images/logo.gif	" width="180" height="100" alt="nonageshop">
-      </a>  
-    </div>
-    <!--로고 들어가는 곳 끝-->     
-    
-    <nav id="catagory_menu">
-     <ul>
-       <c:choose>
-       <c:when test="${empty sessionScope.loginUser}">
-       <li>         
-         <a href="login_form" style="width:110px;">LOGIN</a>   
-	     <a href="admin_login_form" style="width:100px;">ADMIN)</a>
-	   </li>		       
-       <li>/</li>
-       <li><a href="contract">JOIN</a></li>
-       </c:when>
-       <c:otherwise>
-       <li style="color:orange">
-         ${sessionScope.loginUser.name}(${sessionScope.loginUser.id})
-       </li>
-       <li><a href="logout">LOGOUT</a></li>
-       </c:otherwise>       
-       </c:choose>
-       <li>/</li>
-       <li>
-         <a href="cart_list">CART</a>
-       </li><li>/</li>
-       <li>
-         <a href="mypage">MY PAGE</a>
-       </li><li>/</li>
-       <li>
-         <a href="qna_list">Q&amp;A(1:1)</a>
-       </li>
-     </ul>
-    </nav>
-
-    <nav id="top_menu">
-      <ul>
-        <li>
-          <a href="category?kind=1">Heels</a>
-        </li>  
-        <li>
-          <a href="category?kind=2">Boots</a>
-        </li>  
-        <li>
-          <a href="category?kind=3">Sandals</a>
-        </li> 
-        <li>
-          <a href="category?kind=4">Sneakers</a>
-        </li> 
-        <li>
-          <a href="category?kind=5">On Sale</a>
-        </li>  
-      </ul>
-    </nav>
-    <div class="clear"></div>
-    <hr>
-  </header>
+          <div id="logo">
+            <a href="index.html">
+              <h1>학사시스템</h1>
+            </a>
+          </div>
+          <nav id="catagory_menu">
+            <ul>
+              <c:choose>
+              <c:when test="${empty sessionScope.loginUser}">
+              <li>         
+                <a href="login_form" style="width:110px;">LOGIN(student)</a>
+                <a href="professor_login_form" style="width:110px;">professor</a>
+                <a href="admin_login_form" style="width:110px;">admin</a>
+              </li>		       
+              
+              <li><a href="join">JOIN</a></li>
+              </c:when>
+              <c:otherwise>
+              <li style="color:orange">
+                ${sessionScope.loginUser.sname}(${sessionScope.loginUser.sid})
+              </li>
+              <li><a href="logout">LOGOUT</a></li>
+              </c:otherwise>       
+              </c:choose>
+              
+            </ul>
+           </nav>
+          <nav>
+            <ul id="topMenu">
+              <li><a href="#">과목조회 <span>▼</span></a>
+                <ul>
+                  <li><a href="major">전공과목</a></li>
+                  <li><a href="liberalArts">교양과목</a></li>
+                </ul>
+              </li>
+              <li><a href="#">수강신청내역 <span>▼</span></a>
+                <ul>
+                  <li><a href="#">예비장바구니</a></li>
+                  <li><a href="#">내 수업내역</a></li>
+                </ul>
+              </li>
+              <li><a href="studentDetail">마이페이지</a></li>
+              <li><a href="#">게시판 <span>▼</span></a>
+                <ul>
+                  <li><a href="#">공지사항</a></li>
+                  <li><a href="#">문의게시판</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div class="clear"></div>
+        </header>
   <!--헤더파일 들어가는 곳 끝 -->

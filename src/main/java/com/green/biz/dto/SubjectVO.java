@@ -3,32 +3,38 @@ package com.green.biz.dto;
 public class SubjectVO {
 
 	private int sseq;
-	private String name;
-	private String id;
+	private String subname;
+	private String pname;
+	private String dname;
 	private String time;
-	private String majoryn;
 	private String content;
 	private int dseq;
 	private String location;
-	private int number;
-	
+	private String sid;
+	private String pid;
 	public int getSseq() {
 		return sseq;
 	}
 	public void setSseq(int sseq) {
 		this.sseq = sseq;
 	}
-	public String getName() {
-		return name;
+	public String getSubname() {
+		return subname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setSubname(String subname) {
+		this.subname = subname;
 	}
-	public String getId() {
-		return id;
+	public String getPname() {
+		return pname;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public String getDname() {
+		return dname;
+	}
+	public void setDname(String dname) {
+		this.dname = dname;
 	}
 	public String getTime() {
 		return time;
@@ -36,11 +42,11 @@ public class SubjectVO {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public String getMajoryn() {
-		return majoryn;
+	public String getContent() {
+		return content;
 	}
-	public void setMajoryn(String majoryn) {
-		this.majoryn = majoryn;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public int getDseq() {
 		return dseq;
@@ -54,17 +60,25 @@ public class SubjectVO {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public int getNumber() {
-		return number;
+	public String getSid() {
+		return sid;
 	}
-	public void setNumber(int number) {
-		this.number = number;
+	public void setSid(String sid) {
+		this.sid = sid;
+	}
+	public String getPid() {
+		return pid;
+	}
+	public void setPid(String pid) {
+		this.pid = pid;
 	}
 	@Override
 	public String toString() {
-		return "SubjectVO [sseq=" + sseq + ", name=" + name + ", id=" + id + ", time=" + time + ", majoryn=" + majoryn
-				+ ", dseq=" + dseq + ", location=" + location + ", number=" + number + "]";
+		return "SubjectVO [sseq=" + sseq + ", subname=" + subname + ", pname=" + pname + ", dname=" + dname + ", time="
+				+ time + ", content=" + content + ", dseq=" + dseq + ", location=" + location + ", sid=" + sid
+				+ ", pid=" + pid + "]";
 	}
 	
 	
+
 }

@@ -7,13 +7,23 @@
 		<typeAlias type="com.green.biz.dto.StudentVO" alias="student"></typeAlias>	
 		<typeAlias type="com.green.biz.dto.SubjectVO" alias="subject"></typeAlias>
 		<typeAlias type="com.green.biz.dto.CartVO" alias="cart"></typeAlias>	
-		<typeAlias type="com.green.biz.dto.RegisterVO" alias="register"></typeAlias>		
+		<typeAlias type="com.green.biz.dto.ScoreVO" alias="score"></typeAlias>	
+		<typeAlias type="com.green.biz.dto.RegisterVO" alias="register"></typeAlias>
+		<typeAlias type="com.green.biz.dto.AdminVO" alias="admin"></typeAlias>
+		<typeAlias type="com.green.biz.dto.QnaVO" alias="qna"></typeAlias>
+		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice"></typeAlias>
+		<typeAlias type="com.green.biz.dto.ProfessorVO" alias="professor"></typeAlias>			
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mappings/student-mapping.xml" />
 		<mapper resource="mappings/subject-mapping.xml" />
 		<mapper resource="mappings/cart-mapping.xml" />
+		<mapper resource="mappings/score-mapping.xml" />
 		<mapper resource="mappings/register-mapping.xml" />
+		<mapper resource="mappings/admin-mapping.xml" />
+		<mapper resource="mappings/qna-mapping.xml" />
+		<mapper resource="mappings/notice-mapping.xml" />
+		<mapper resource="mappings/professor-mapping.xml" />
 	</mappers>
 </configuration>

@@ -2,11 +2,18 @@ package com.green.biz.dto;
 
 public class RegisterVO {
 
+	// s.time
 	private int rseq;
 	private int sseq;
-	private String id;
+	private int pseq;
+	private String subname;
+	private String pname;
+	private String result;
+	private String time;
 	private String completeyn;
-	private int score;
+	private String sid;
+	
+	
 	public int getRseq() {
 		return rseq;
 	}
@@ -19,11 +26,35 @@ public class RegisterVO {
 	public void setSseq(int sseq) {
 		this.sseq = sseq;
 	}
-	public String getId() {
-		return id;
+	public int getPseq() {
+		return pseq;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setPseq(int pseq) {
+		this.pseq = pseq;
+	}
+	public String getSubname() {
+		return subname;
+	}
+	public void setSubname(String subname) {
+		this.subname = subname;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public String getResult() {
+		return result;
+	}
+	public void setResult(String result) {
+		this.result = result;
+	}
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
+		this.time = time;
 	}
 	public String getCompleteyn() {
 		return completeyn;
@@ -31,17 +62,18 @@ public class RegisterVO {
 	public void setCompleteyn(String completeyn) {
 		this.completeyn = completeyn;
 	}
-	public int getScore() {
-		return score;
+	public String getSid() {
+		return sid;
 	}
-	public void setScore(int score) {
-		this.score = score;
+	public void setSid(String sid) {
+		this.sid = sid;
 	}
 	@Override
 	public String toString() {
-		return "RegisterVO [rseq=" + rseq + ", sseq=" + sseq + ", id=" + id + ", completeyn=" + completeyn + ", score="
-				+ score + "]";
+		return "RegisterVO [rseq=" + rseq + ", sseq=" + sseq + ", pseq=" + pseq + ", subname=" + subname + ", pname="
+				+ pname + ", result=" + result + ", time=" + time + ", completeyn=" + completeyn + ", sid=" + sid + "]";
 	}
+	
 	
 	
 }

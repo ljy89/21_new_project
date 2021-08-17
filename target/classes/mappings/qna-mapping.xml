@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QnaDAO">
+	
+	<!-- 내가 질문한 Q&N 조회 -->
+	<select id="getMyQnaList" parameterType="String" resultType="qna">
+		SELECT * FROM qnab
+		 WHERE id=#{sid} ORDER BY qseq DESC
+	</select>
+
+	<!-- qseq로 qna조회 -->
+	<select id="getQna" parameterType="int" resultType="qna">
+		SELECT * FROM qnab
+		 WHERE qseq=#{qseq}
+	</select>
+	
+	<insert id="insertQna">
+		INSERT INTO qnab(qseq, subject, content, id)
+		VALUES (qna_seq.NEXTVAL, #{subject}, #{content}, #{sid})
+	</insert>
+	
+	<!-- 모든 큐엔에이를 출력 -->
+	<select id="listAllQna" resultType="qna">
+		SELECT * FROM qnab 
+		ORDER BY indate DESC
+	</select>
+	
+	<!-- 답변 달리면 처리 완료로 변경 -->
+	<update id="updateQna">
+		UPDATE qnab SET reply=#{reply} , rep='2' 
+		WHERE qseq=#{qseq}
+	</update>
+
+
+</mapper>
