@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.green.biz.dao.SubjectDAO;
 import com.green.biz.dto.SubjectVO;
 import com.green.biz.subject.SubjectService;
+import com.green.biz.utils.Criteria;
 
 @Service("subjectService")
 public class SubjectServiceImpl implements SubjectService {
@@ -34,11 +35,17 @@ public class SubjectServiceImpl implements SubjectService {
 	}
 
 	@Override
-	public List<SubjectVO> searchSubjectList(String key) {
+	public List<SubjectVO> searchMajorList(String key) {
 		
-		return sDao.searchSubjectList(key);
+		return sDao.searchMajorList(key);
 	}
 
+	@Override
+	public List<SubjectVO> searchLiberalArts(String key) {
+		
+		return sDao.searchLiberalArts(key);
+	}
+	
 	@Override
 	public void insertSubject(SubjectVO vo) {
 		
@@ -57,5 +64,18 @@ public class SubjectServiceImpl implements SubjectService {
 		
 		return sDao.mySubjectList(id);
 	}
+
+	@Override
+	public List<SubjectVO> getMajorListWithPaging(Criteria criteria, String key) {
+		
+		return sDao.getMajorListWithPaging(criteria, key);
+	}
+
+	@Override
+	public int countMajorList(String subname) {
+		
+		return sDao.countMajorList(subname);
+	}
+
 
 }

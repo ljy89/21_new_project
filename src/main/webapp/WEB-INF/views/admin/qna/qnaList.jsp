@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ include file="../../header.jsp"%>
+<%@ include file="../header.jsp"%>
 <%@ include file="sub_menu.jsp"%>
 <script type="text/javascript">
-  function go_view(qseq) {
+  function qna_detail_view(qseq) {
     var theForm = document.frm;
     theForm.qseq.value = qseq;
     theForm.action = "admin_qna_detail";
@@ -12,7 +12,7 @@
 </script>
 
 <article>
-<h1>Q&amp;A 게시글 리스트</h1>  
+<h1>Q&amp;A 답변 리스트</h1>  
 <form name="frm" method="post">
 <input type="hidden" name="qseq">  
 <table id="orderList">
@@ -29,11 +29,11 @@
       </c:choose>      
       </td>
       <td> 
-      <a href="#" onClick="javascript:go_view('${qnaVO.qseq}')">
+      <a href="#" onClick="javascript:qna_detail_view('${qnaVO.qseq}')">
         ${qnaVO.subject} 
       </a>
       </td>
-      <td> ${qnaVO.id} </td>
+      <td> ${qnaVO.sid} </td>
       <td> <fmt:formatDate value="${qnaVO.indate}"/></td>
       </tr>
     </c:forEach>

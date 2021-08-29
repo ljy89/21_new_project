@@ -23,6 +23,7 @@
 	<mvc:resources location="/WEB-INF/views/score/" mapping="/score/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/student/" mapping="/student/**"></mvc:resources>
 	<mvc:resources location="/WEB-INF/views/subject/" mapping="/subject/**"></mvc:resources>
+	<mvc:resources location="/WEB-INF/views/cart/" mapping="/cart/**"></mvc:resources>
 	
 	
 	<!-- jsp 소스 View Resolver -->

@@ -52,4 +52,10 @@ public class StudentServiceImpl implements StudentService {
 
 	}
 
+	@Override
+	public List<StudentVO> listStudent(String sname) {
+		
+		return sDao.listStudent(sname);
+	}
+
 }

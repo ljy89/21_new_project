@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="css/system.css" >  
   <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script> 
    <script type="text/javascript" src="student/member.js"></script>
+   <script type="text/javascript" src="subject/subject.js"></script>
+   <script type="text/javascript" src="cart/cart.js"></script>
+   <script type="text/javascript" src="professor/professor.js"></script>
+   <script type="text/javascript" src="score/score.js"></script>
+   <script type="text/javascript" src="notice/notice.js"></script>
   <script type="text/javascript" src="slide.js"></script>
 </head>
 
@@ -17,12 +22,14 @@
 <div id="wrap">
 <!--헤더파일 들어가는 곳 시작 -->
   <header>
-          <div id="logo">
+  		<div id="header_top">
+  			 <div id="logo">
             <a href="index.html">
-              <h1>학사시스템</h1>
+              <img src="images/logo.jpg" style="height:70px;" id="img">
             </a>
           </div>
-          <nav id="catagory_menu">
+  		
+  			<nav id="catagory_menu">
             <ul>
               <c:choose>
               <c:when test="${empty sessionScope.loginUser}">
@@ -35,7 +42,7 @@
               <li><a href="join">JOIN</a></li>
               </c:when>
               <c:otherwise>
-              <li style="color:orange">
+              <li style="color:#CCC">
                 ${sessionScope.loginUser.sname}(${sessionScope.loginUser.sid})
               </li>
               <li><a href="logout">LOGOUT</a></li>
@@ -44,29 +51,37 @@
               
             </ul>
            </nav>
-          <nav>
+  		</div>
+  		
+        <div id="header_bottom">
+        	<nav>
             <ul id="topMenu">
               <li><a href="#">과목조회 <span>▼</span></a>
                 <ul>
-                  <li><a href="major">전공과목</a></li>
+                  <li><a href="subject_major_list">전공과목</a></li>
                   <li><a href="liberalArts">교양과목</a></li>
                 </ul>
               </li>
               <li><a href="#">수강신청내역 <span>▼</span></a>
                 <ul>
-                  <li><a href="#">예비장바구니</a></li>
-                  <li><a href="#">내 수업내역</a></li>
+                  <li><a href=cart_list>예비장바구니</a></li>
+                  <li><a href="my_register_list">내 수업내역</a></li>
+                  <li><a href="time_table">시간표</a></li>
                 </ul>
               </li>
               <li><a href="studentDetail">마이페이지</a></li>
               <li><a href="#">게시판 <span>▼</span></a>
                 <ul>
-                  <li><a href="#">공지사항</a></li>
-                  <li><a href="#">문의게시판</a></li>
+                  <li><a href="board_list">자유 게시판</a></li>
+                  <li><a href="qna_list">1:1 문의하기</a></li>
                 </ul>
               </li>
             </ul>
           </nav>
+        
+        </div> 
+          
+          
           <div class="clear"></div>
         </header>
   <!--헤더파일 들어가는 곳 끝 -->

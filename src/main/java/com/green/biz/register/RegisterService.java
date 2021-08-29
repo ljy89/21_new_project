@@ -8,11 +8,17 @@ public interface RegisterService {
 
 	public int selectMaxRseq();
 	
-	public void insertRegister(RegisterVO vo);
+	public int insertRegister(RegisterVO vo, int[] cseqArr);
 	
-	public void deleteSubject(int rseq);
+	public int goInsertRegister(RegisterVO vo , int sseq);
+	
+	public void insertOrderDetail(RegisterVO vo);
+	
+	public void deleteSubject(int rdseq);
 	
 	public List<RegisterVO> listRegisterById(String id);
 	
 	public void updateRegisterResult(int rseq);
+	
+	public RegisterVO confirmSseq(RegisterVO vo);
 }

@@ -4,14 +4,18 @@ public class RegisterVO {
 
 	// s.time
 	private int rseq;
+	private int rdseq;
 	private int sseq;
 	private int pseq;
+	private int dseq;
+	private int cseq;
 	private String subname;
 	private String pname;
 	private String result;
 	private String time;
 	private String completeyn;
 	private String sid;
+	private String dname;
 	
 	
 	public int getRseq() {
@@ -19,6 +23,12 @@ public class RegisterVO {
 	}
 	public void setRseq(int rseq) {
 		this.rseq = rseq;
+	}
+	public int getRdseq() {
+		return rdseq;
+	}
+	public void setRdseq(int rdseq) {
+		this.rdseq = rdseq;
 	}
 	public int getSseq() {
 		return sseq;
@@ -31,6 +41,18 @@ public class RegisterVO {
 	}
 	public void setPseq(int pseq) {
 		this.pseq = pseq;
+	}
+	public int getDseq() {
+		return dseq;
+	}
+	public void setDseq(int dseq) {
+		this.dseq = dseq;
+	}
+	public int getCseq() {
+		return cseq;
+	}
+	public void setCseq(int cseq) {
+		this.cseq = cseq;
 	}
 	public String getSubname() {
 		return subname;
@@ -68,12 +90,17 @@ public class RegisterVO {
 	public void setSid(String sid) {
 		this.sid = sid;
 	}
+	public String getDname() {
+		return dname;
+	}
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
 	@Override
 	public String toString() {
-		return "RegisterVO [rseq=" + rseq + ", sseq=" + sseq + ", pseq=" + pseq + ", subname=" + subname + ", pname="
-				+ pname + ", result=" + result + ", time=" + time + ", completeyn=" + completeyn + ", sid=" + sid + "]";
+		return "RegisterVO [rseq=" + rseq + ", rdseq=" + rdseq + ", sseq=" + sseq + ", pseq=" + pseq + ", dseq=" + dseq
+				+ ", cseq=" + cseq + ", subname=" + subname + ", pname=" + pname + ", result=" + result + ", time="
+				+ time + ", completeyn=" + completeyn + ", sid=" + sid + ", dname=" + dname + "]";
 	}
-	
-	
 	
 }

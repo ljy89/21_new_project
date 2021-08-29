@@ -25,16 +25,15 @@
 	<c:otherwise>
 	<c:forEach items="${scoreList}" var="scoreVO">
     <tr>
-      <td height="23" align="center" >${scoreVO.dname}</td>
-      <td style="text-align: left; padding-left: 50px; padding-right: 0px;">${scoreVO.pname}</td>
+      <td>${scoreVO.dname}</td>
+      <td>${scoreVO.pname}</td>
    	  <td>${scoreVO.score}</td>
     </tr>
     </c:forEach>
-    <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr>
 	</c:otherwise>	
 </c:choose>  
 </table>
 </form> 
- <%@ include file="page_area.jsp" %>
+
 </article>
 <%@ include file="../footer.jsp" %>

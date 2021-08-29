@@ -2,7 +2,13 @@
   pageEncoding="UTF-8"%>
 <%@ include file="header.jsp" %>  
 
- 
+ <script>
+  $(document).ready(function(){
+	  var slideIndex = 1;
+	  showSlides(slideIndex);
+	  
+  });
+ </script>
   <div class="clear"></div>   
 
   <div id="front"> 

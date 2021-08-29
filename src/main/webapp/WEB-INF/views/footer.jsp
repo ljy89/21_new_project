@@ -13,8 +13,10 @@
             </div>
           </div>
           <div id="company">
-            <p>All contents Copyright 2013 Nonage Inc. all rights reserved<br>
-              Contact mail : Nonage@Nonage.com Tel: +82 64 123 4315 Fax +82 64 123 4321</p> 
+            <p><b>※ 이 사이트는 크롬 브라우저에 최적화되었습니다.</b><br>
+				개인정보처리방침 이메일주소 무단수집거부 원격지원 찾아오는길 연락처<br>
+				08826 서울시 관악구 관악로 1 서울대학교 학사시스템 대표전화 880-8001, 5325<br>
+				Copyright© 2020 Seoul National University. All rights reserved.</p> 
           </div>     
         </footer>  
       </div> 

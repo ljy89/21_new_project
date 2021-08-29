@@ -4,15 +4,15 @@
 <%@ include file="sub_menu.jsp"%>
 
 <article>
-<h1>상품등록</h1>  
+<h1>새글등록</h1>  
 <!-- [1] 파일을 업로드 하기 위해서는 폼태그를 post 방식으로 전송하고,
 인코딩 타입을 multipart/form-data 로 지정해야 한다. -->
-<form name="frm" id="write_form" method="post" enctype="multipart/form-data">
+<form name="frm" id="write_form" method="post">
 <table id="list">
   
   <tr>
   	<th>제목</th>
-  	<td><input type="text" name="title" id="title" size="47" maxlength="100"></td>
+  	<td><input type="text" name="subject" id="subject" size="47" maxlength="100"></td>
   </tr>
 <tr>
 
@@ -24,8 +24,8 @@
   </tr>
 
 </table>
-<input class="btn" type="button" value="등록" onClick="go_save()">           
-<input class="btn" type="button" value="취소" onClick="go_mov()">
+<input class="btn" type="button" value="등록" onClick="board_save()">           
+<input class="btn" type="reset" value="취소">
 </form> 
 </article>
 <%@ include file="../footer.jsp"%>

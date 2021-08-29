@@ -3,7 +3,7 @@
 <%@ include file="../header.jsp" %>    
 <%@ include file="sub_menu.html" %>   
   <article>
-    <h2>Join Us</h2>
+    <h1>Join Us</h1>
     <form id="join" action="join" method="post" name="formm">
       <fieldset>
         <legend>Basic Info</legend>

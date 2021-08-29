@@ -6,10 +6,8 @@
 
 <article>
 <h1>강의 수정</h1>  
-<form name="frm" id="update_form" method="post" enctype="multipart/form-data">
-<input type="hidden" name="pseq" value="${productVO.pseq}">
-<input type="hidden" name="code" >
-<input type="hidden" name="nonmakeImg" value="${productVO.image}">
+<form name="frm" id="update_form" method="post" >
+
 <table id="list">
   <tr>
     <th>학과명</th>
@@ -56,6 +54,7 @@
     <input type="text" name="price2" id="price2" size="11" value="${productVO.price2}">
   </tr>    
 </table>
+<br>
 <input class="btn" type="button" value="수정" onClick="go_mod_save('${productVO.pseq}')">           
 <input class="btn" type="button" value="취소" onClick="go_mov()">
 </form> 

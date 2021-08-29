@@ -10,8 +10,6 @@ public class NoticeVO {
 	private String sid;
 	private Timestamp indate;
 	private String admin_id;
-	
-	
 	public int getNseq() {
 		return nseq;
 	}
@@ -53,6 +51,7 @@ public class NoticeVO {
 		return "NoticeVO [nseq=" + nseq + ", subject=" + subject + ", content=" + content + ", sid=" + sid + ", indate="
 				+ indate + ", admin_id=" + admin_id + "]";
 	}
+	
 	
 	
 	

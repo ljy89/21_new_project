@@ -7,16 +7,19 @@ public interface StudentService {
 
 	public StudentVO getStudent(String id);
 	
-	//모든 학생 조회
+	//紐⑤뱺 �븰�깮 議고쉶
 	public List<StudentVO> getStudentList();
 	
-	//id 존재하는지 확인
+	//id 議댁옱�븯�뒗吏� �솗�씤
 	public int confirmID(String id);
 	
-	//login 할때 id,pwd 일치 확인
+	//login �븷�븣 id,pwd �씪移� �솗�씤
 	public int loginID(StudentVO vo);
 	
 	public void insertStudent(StudentVO vo);
 	
 	public void updateStudent(StudentVO vo);
+	
+	public List<StudentVO> listStudent(String sname);
+	
 }

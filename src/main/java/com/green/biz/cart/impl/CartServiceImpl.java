@@ -27,8 +27,8 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public void updateCart(CartVO vo) {
-		cDao.updateCart(vo);
+	public void updateCart(int cseq) {
+		cDao.updateCart(cseq);
 
 	}
 

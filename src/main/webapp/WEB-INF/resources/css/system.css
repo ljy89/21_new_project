@@ -15,23 +15,35 @@
     width: 1200px;
 }
 
-header {
+header #header_top{
     width: 100%;
-    height: 150px;
-    background-color: #FDEFEF;
+    height: 100px;
+    background-color: #ffffff;
 }
 
+header #topMenu{
+	 width: 100%;
+    height: 43px;
+    background-color: #987c4d;
+}
+
+header #img{
+	display:block;
+	margin-top:15px;
+}
 #logo {
     float: left;
-    width: 20%;
+    /*width: 20%;
     height: 100px;
-    line-height: 150px;
+    line-height: 100px;*/
     padding-left: 1%;
+    display:block;
 }
 
 #logo h1 {
-    font-weight: 700;
-    font-size: 2.5rem;
+	/*
+    font-weight: 700;*/
+    font-size: 15px;
     color: #989898;
    
 }
@@ -40,10 +52,18 @@ header {
     text-decoration: none;
 }
 
-header nav {
+header #catagory_menu {
     float: right;
-    width: 75%;
+   /* width: 75%;*/
 }
+
+
+header #topMenu {
+   /* float: right;*/
+    width: 100%;
+    background-color: #987c4d;
+}
+
 
 #topMenu {
     height: 20px;
@@ -59,10 +79,12 @@ ul {
 
 #topMenu>li>a {
     display: block;
-    color: rgb(10, 10, 10);
-    font-weight: 600;
-    padding: 30px 60px;
+    color: white;
+    /*font-weight: 600;*/
+    padding: 0px 100px 0px 100px;
     text-decoration: none;
+    line-height: 43px;
+     font-size: 15px;
 }
 
 #topMenu>li>a>span {
@@ -70,8 +92,8 @@ ul {
 }
 
 #topMenu>li>a:hover {
-    color: #F38BA0;
-   
+    background: white;
+    color: #987c4d;
 
 }
 #topMenu > li {
@@ -80,9 +102,9 @@ ul {
 #topMenu > li > ul {
     display: none;
     position: absolute;
-    width: 160px;
-    background-color: rgba(255, 255, 255, 0.6);
-    left: 30px;
+    width: 300px;
+    background-color: rgba(255, 255, 255);
+   /* left: 30px;*/
     margin: 0;
 }
 #topMenu > li > ul > li {
@@ -91,17 +113,26 @@ ul {
 #topMenu > li > ul > li > a {
     font-size: 14px;
     padding: 10px;
-    color: #000;
+    padding-left :70px;
+    color: #000040;
     text-decoration: none;
 }
 #topMenu > li:hover > ul {
     display: block;
     z-index: 10;
 }
+
 #topMenu > li > ul > li > a:hover {
-    color: rgb(91, 87, 92);
+    color: white;
+    
 }
 
+
+#topMenu > li > ul > li:hover {
+    color: white;
+    background: #987c4d;
+    
+}
 #catagory_menu{
 	float:top;
     margin:30px 60px 0 0;
@@ -116,7 +147,7 @@ ul {
 	display:block; 
     height:30px;
     float:right;
-    font-family: 援대┝;
+    font-family: "Nanum Barun Gothic", sans-serif;
 }
 
 #catagory_menu a{
@@ -129,9 +160,9 @@ ul {
 }
 
 #catagory_menu a:hover{
-    color: #F90;
+    color: #987c4d;
     font-weight: bold;
-}
+    }
 
 #slideShow {
     clear: both;
@@ -152,11 +183,11 @@ button {
     height: 400px;
     top: 0;
     border: none;
-    color: #000;
+    color: white;
     padding: 20px;
     font-size: 24px;
     font-weight: 800;
-    background-color: transparent;
+    background-color: #bcbdb6;
     opacity: 0.8;
 }
 button:hover {
@@ -269,11 +300,21 @@ button:hover {
     background-image: url('../images/icon-3.jpg');
 }
 
+article{
+	min-height: 308px;
+}
+
+article .title{
+	font-size: 20px;
+	color: #987c4d;
+	
+}
 footer {
+	background: #cbbfae;
     position: relative;
     width: 100%;
-    height: 100px;
-    border-top: 2px solid #222;
+    /*height: 100px;
+    border-top: 2px solid #222;*/
 }
 
 #bottomMenu {
@@ -314,7 +355,8 @@ footer {
 #company p {
     padding-bottom: 30px;
     padding-left: 20px;
-    color: #ccc;
+    color: #756e63;
+    font-size: 14px;
 }
 
 /*슬라이드 css
@@ -424,16 +466,17 @@ footer {
 */
 article h1, div h1 {
 	/*font-family: "Times New Roman", Times, serif;*/
-	font-size: 45px;
-	color: #CCC;
+	font-size: 27px;
+	font-weight:bold;
+	color: #987c4d;
 	margin: 20px 0;
-	font-weight: normal;
+	
 }
 
 article h2, div h2{
 	/*font-family: "Times New Roman", Times, serif;*/
-	font-size: 30px; 
-	color: #CCC;
+	font-size: 17px; 
+	color: #987c4d;
 	padding-bottom: 15px;
 	margin-top : 5px;
 	border-bottom: 1px dotted #666; 	
@@ -506,12 +549,22 @@ form  .submit,form  .cancel {
 }
 
  form  .submit {
-	background-color: #FCD1D1;
+	background-color: #ffffff;
+}
+
+form  .submit:hover{
+	background-color: #dadad5;
 }
 
 form  .cancel {
-	background-color: #FCD1D1;
+	background-color: #ffffff;
 }
+
+form  .cancel:hover{
+	background-color: #dadad5;
+}
+
+
 /* 
 #comment_item {
 	width: 650px;
@@ -544,7 +597,7 @@ sub_menu css
 #sub_menu a {
 	text-decoration: none;
 	/*color: white; font-family: Arial, Helvetica, sans-serif;*/
-	font-weight:bold; font-size:25px;
+	font-size:15px;
 	display: block;
 	height: 15px;
 	width: 160px;
@@ -559,11 +612,20 @@ sub_menu css
 }
 
 #sub_menu a:hover {
-	/*background-image: url(../images/bullet_orange.gif);*/
-	background-repeat: no-repeat; 
+	
+	/*background-repeat: no-repeat; */
 	background-position: right center;
-	font-weight:bold; font-size:25px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-size:15px;
+	font-family: "Nanum Barun Gothic", sans-serif;
+	background-color: #987c4d;
+	height: 35px;
+	color: white;
+}
+
+#sub_menu_div li{
+  margin-bottom : 6px;
+  border: 1px solid #987c4d;
+
 }
 
 /*
@@ -572,11 +634,11 @@ sub_menu css 끝
 
 
 a{
-    color:#D3E0DC;
+    color:#400040;
     text-decoration:none;
 }
 a:hover{
-    color:#AEE1E1;
+    color:#987c4d;
     text-decoration:underline;
 }
 
@@ -594,7 +656,7 @@ article {
 article p {
 	padding-left: 10px;
 }
-
+/*
 article table#notice {
 	width: 670px;
 	border-collapse: collapse;
@@ -622,9 +684,40 @@ article table#notice tr:hover {
 	cursor: pointer;
 	color: red;
 }
-
+*/
 nav #sub_menu{
 	
 	width :150px;
 	
+}
+
+/*
+테이블 css
+*/
+
+
+table{
+	width: 700px;
+}
+
+
+
+table, th, td{
+	
+    border: 2px solid #ccc;
+    border-collapse: collapse;
+}
+
+.search{
+	border: 0px solid #white;
+}
+
+th {
+	background-color: #dadad5;
+}
+
+th, td {
+    padding: 10px;
+    
+
 }

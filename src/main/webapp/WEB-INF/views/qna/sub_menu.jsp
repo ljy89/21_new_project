@@ -1,9 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
+
   <nav id="sub_menu">
-    <ul>    
-      <li><a href="qna_list">Q&amp;A 게시글 리스트</a></li>
-      <li><a href="qna_write_form">Q&amp;A 게시글 쓰기</a></li> 
+  
+  <ul>
+      <li><span style="font-size: 20px; ">게시판</span></li>
     </ul>
+    
+   <div id="sub_menu_div">
+	   	 <ul>
+	     	<li><a href="board_list">자유 게시판</a></li>
+      		<li><a href="qna_list">1:1 문의하기</a></li> 
+	    </ul>
+   </div>
+   
   </nav>

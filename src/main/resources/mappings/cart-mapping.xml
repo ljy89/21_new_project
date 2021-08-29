@@ -3,28 +3,28 @@
 <mapper namespace="CartDAO">
 	
 	<select id="listCart" parameterType="String" resultType="cart">
-		SELECT c.cseq, d.dseq ,d.name dname, s.sseq, s.name subname, p.pseq, p.name pname, s.time, c.result, t.id sid
-		FROM cart c, department d, subject s, professor p, student t
+		SELECT c.cseq, d.dseq ,d.name dname, s.sseq, s.name subname, p.name pname, s.time, c.result, t.id sid
+		FROM excart c, department d, subject s, professor p, student t
 		WHERE c.result = '1'
 		AND c.sseq = s.sseq 
 		AND d.dseq = s.dseq 
 		AND p.id = s.id
 		AND t.id = c.id
-		AND s.id =#{sid}
+		AND t.id =#{sid}
 	</select>
 	
 	<insert id="insertCart">
-		INSERT INTO cart(cseq, id, pseq, quantity)
-		VALUES(cart_seq.NEXTVAL, #{id}, #{pseq}, #{quantity})
+		INSERT INTO excart(cseq, id, sseq)
+		VALUES(excart_seq.NEXTVAL, #{sid}, #{sseq})
 	</insert>
 	
 	<update id="updateCart" parameterType="int">
-		UPDATE cart SET result='2'
+		UPDATE excart SET result='2'
 		 WHERE cseq=#{cseq} 
 	</update>
 	
 	<delete id="deleteCart" parameterType="int">
-		DELETE FROM cart
+		DELETE FROM excart
 		WHERE cseq=#{cseq}
 	</delete>	
 </mapper>

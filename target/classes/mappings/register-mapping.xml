@@ -10,33 +10,52 @@
 	<!--수강 테이블에 새로운 수강 신청담기 -->
 	
 	<insert id="insertRegister">
-		INSERT INTO register(rseq, sseq, id)
-		VALUES(register_seq.NEXTVAL, #{sseq},#{sid})
+		INSERT INTO register(rseq, id)
+		VALUES(#{rseq}, #{sid})
 	</insert>
 	
-	<!-- 수강신청 취소 -->
-	<delete id="deleteSubject" parameterType="int">
-		DELETE FROM register
-		WHERE rseq=#{rseq}
+	<!-- 주문 상세테이블에 한 주문에 대해 상세 상품정보 생성 -->
+	<insert id="insertOrderDetail">
+		INSERT INTO register_detail(rdseq, rseq, sseq)
+		VALUES(register_detail_seq.NEXTVAL, #{rseq}, #{sseq})
+	</insert>
 	
-	</delete>
+	
 	
 	<!-- 학생별 수강 내역 -->
 	<select id="listRegisterById" resultType="register">
-		SELECT s.name subname, p.name pname,
-		 s.time , r.rseq, s.sseq, p.pseq
-		 FROM register r, subject s, professor p
-		 WHERE id=#{sid}
-		  AND r.sseq = s.sseq
+		SELECT s.name subname, p.name pname, de.name dname,
+		 		s.time , r.rseq, s.sseq, p.id pid, d.rdseq
+		 FROM register r, subject s, professor p, register_detail d, department de
+		 WHERE r.id=#{sid}
+		  AND r.rseq = d.rseq
+		  AND d.sseq = s.sseq
 		  AND s.id = p.id
+		  AND de.dseq = s.dseq
 	</select>
 	
 	
 	<!-- 이수결과 상태 갱신 -->
-	<update id="updateRegisterResult" parameterType="int">
-		UPDATE register 
+	<update id="updateRegisterComplet" parameterType="int">
+		UPDATE register_detail 
 			SET completeyn='y' 
 			WHERE rseq=#{rseq}
 	</update>
 
+	<!-- 수강신청 취소 -->
+	<delete id="deleteSubject" parameterType="int">
+		DELETE FROM register_detail
+		WHERE rdseq=#{rdseq}
+	
+	</delete>
+	
+	<select id="confirmSseq" resultType="register">
+		SELECT sub.sseq ,sub.name subname
+		FROM student s, register r, register_detail d, subject sub
+		WHERE s.id = #{sid}
+			AND sub.sseq= #{sseq}
+			AND s.id = r.id
+			AND r.rseq = d.rseq
+			AND sub.sseq = d.sseq
+	</select>
 </mapper>

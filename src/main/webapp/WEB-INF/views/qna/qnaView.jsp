@@ -1,11 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>   
-<%@ include file="sub_img.html"%> 
 <%@ include file="sub_menu.jsp" %>   
   <article>
-      <h2> 1:1 고객 게시판 </h2>
-      <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>    
+   <br>
+      <h1> 1:1 문의하기 </h1>
+      
+    <table>
+    	<tr>
+			<td><span style="font-size: 14px;">문의를 남겨주시면 1:1 답변을 드립니다.</span></td>
+    	</tr>
+    </table>
+    <br>
     <form name="formm" method="post">
     <table id="notice">
       <tr>
@@ -27,8 +33,7 @@
     </table>
     <div class="clear"></div>
      <div id="buttons" style="float:right">
-      <input type="button"  value="목록보기"     class="submit"  onclick="location.href='qna_list'"> 
-      <input type="button"  value="쇼핑 계속하기"  class="cancel"  onclick="location.href='index'">  
+      <input type="button"  value="목록보기"     class="submit"  onclick="location.href='qna_list'">  
       </div>
     </form>
   </article>

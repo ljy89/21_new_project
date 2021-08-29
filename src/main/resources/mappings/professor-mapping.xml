@@ -8,8 +8,46 @@
 	</select>
 	
 	<select id="getProfessor" parameterType="String" resultType="professor">
-		SELECT * FROM professor
+		SELECT id pid, pwd, name pname FROM professor
 		WHERE id=#{pid}
 	
 	</select>
+	
+	<select id="subjectByProfessor" parameterType="hashMap" resultType="professor">
+		SELECT s.sseq, s.name subname, d.name dname, s.time
+		FROM subject s, department d, professor p
+		WHERE p.id=#{pid}
+		 AND s.name LIKE '%'||#{key}||'%'
+		  AND s.id = p.id
+		  AND s.dseq = d.dseq
+		ORDER BY s.name
+	</select>
+	
+	<select id="ProSubjectDetail" parameterType="int" resultType="professor">
+		SELECT s.name subname , d.name dname, s.time, p.name pname, s.content, s.location, s.majoryn, s.sseq
+		FROM subject s, department d, professor p
+		WHERE s.sseq = #{sseq}
+			AND s.dseq = d.dseq
+			AND p.id = s.id
+	
+	</select>
+	
+	<update id="sujectUpdate" parameterType="professor">
+		UPDATE subject 
+		SET majoryn=#{majoryn}, 
+			name=#{subname},
+			content=#{content},
+			time=#{time},
+			location=#{location}
+		WHERE sseq=#{sseq}
+	
+	</update>
+	
+	<insert id="insertSubject">
+		INSERT INTO subject
+			(sseq, name, id, time, majoryn, content, dseq, location)
+		VALUES(subject_seq.NEXTVAL, #{subname}, #{pid}, #{time}, #{majoryn},
+			#{content},#{dseq},#{location})
+	</insert>
+	
 </mapper>

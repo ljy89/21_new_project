@@ -22,8 +22,11 @@ public class RegisterDAO {
 		mybatis.insert("RegisterDAO.insertRegister", vo);
 	}
 	
-	public void deleteSubject(int rseq) {
-		mybatis.delete("RegisterDAO.deleteSubject" , rseq);
+	public void insertOrderDetail(RegisterVO vo) {
+		mybatis.insert("RegisterDAO.insertOrderDetail", vo);
+	}
+	public void deleteSubject(int rdseq) {
+		mybatis.delete("RegisterDAO.deleteSubject" , rdseq);
 	}
 	
 	public List<RegisterVO> listRegisterById(String id) {
@@ -35,5 +38,10 @@ public class RegisterDAO {
 		
 		mybatis.update("RegisterDAO.updateRegisterResult", rseq);
 	
+	}
+	
+	public RegisterVO confirmSseq(RegisterVO vo) {
+		
+		return mybatis.selectOne("RegisterDAO.confirmSseq", vo);
 	}
 }

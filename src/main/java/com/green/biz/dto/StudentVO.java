@@ -64,7 +64,7 @@ public class StudentVO {
 				+ ", dname=" + dname + ", pwd=" + pwd + ", type=" + type + "]";
 	}
 	
-	
+
 	
 	
 }

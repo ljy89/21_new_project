@@ -21,8 +21,8 @@ public class CartDAO {
 		mybatis.insert("CartDAO.insertCart", vo);
 	}
 	
-	public void updateCart(CartVO vo) {
-		mybatis.update("CartDAO.updateCart", vo);
+	public void updateCart(int cseq) {
+		mybatis.update("CartDAO.updateCart", cseq);
 	}
 	
 	public void deleteCart(int cseq) {

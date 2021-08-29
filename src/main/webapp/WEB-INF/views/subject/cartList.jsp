@@ -6,7 +6,7 @@
 
 <!-- cartList.jsp참조 -->      
   <article style="margin-bottom: 20px">
-    <h2> Cart List </h2>
+    <h1> Cart List </h1>
     <form name="formm" id="theform" method="post">
     <c:choose>
     <c:when test= "${cartList.size() == 0}">

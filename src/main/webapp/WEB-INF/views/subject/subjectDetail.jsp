@@ -9,6 +9,7 @@
 <form name="frm" id="detail_form" method="post">
 	<div>
 		<table id="list">
+		<input type="hidden" id="sseq" name="sseq" value="${subjectVO.sseq}"> <br>
 		  <tr>
 		    <th>과목명</th>
 		    <td>${subjectVO.dname}</td>
@@ -21,33 +22,41 @@
 		    <tr>
 		        <th >수업시간</th>
 		        <td>${subjectVO.time}</td>
-		        <th>수업 소개</th>
-		        <td>${subjectVO.content}</td>
+		        
 		    </tr>
-		     
+		     <tr>
+		     	<th>수업 소개</th>
+		        <td>${subjectVO.content}</td>
+		     </tr>
 		    <tr>
 		        <th>수업장소</th>
 		       <td>${subjectVO.location}</td>
 		    </tr>
 		    
-		    <tr>
+		     <!--[7]<tr>
 		     <th>상품이미지</th>
 		     <td colspan="5" align="center">
-		  <!--[7] 상품 이미지를 출력하기 -->     
+		  상품 이미지를 출력하기 
 		     <img src="product_images/${productVO.image}" width="200pt">    
 		     </td>
-		    </tr>
+		    </tr> -->    
 		     
 		</table>
 	
 	</div>
-
+<input type="button" value="장바구니에 담기"   class="submit"    onclick="go_excart()"> 
+<!-- <input type="button" value="수강신청"       class="submit"    onclick="go_register()">  -->
+<input type="button" value="수강신청"       class="submit"    onclick="register_check()"> 
+<input type="button" value="목록"       class="submit"    onclick="go_list()"> 
+<!-- 
 <input class="btn"  type="button" value="예비장바구니" onClick="go_list('${criteria.pageNum}', '${criteria.rowsPerPage}')">
 <input class="btn"  type="button" value="수강등록" onClick="go_list('${criteria.pageNum}', '${criteria.rowsPerPage}')"> 
-<input class="btn"  type="button" value="목록" onClick="go_list('${criteria.pageNum}', '${criteria.rowsPerPage}')">            
+<input class="btn"  type="button" value="목록" onClick="go_list('${criteria.pageNum}', '${criteria.rowsPerPage}')">    -->         
 </form>
 </article>
+
 <%@ include file="../footer.jsp"%>
+
 </body>
 </html>
 

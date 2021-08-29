@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/green/biz/dao/ScoreDAO.java=UTF-8
+encoding//src/main/java/com/green/biz/dao/StudentDAO.java=UTF-8
+encoding//src/main/java/com/green/biz/register/impl/RegisterServiceImpl.java=UTF-8
+encoding//src/main/java/com/green/biz/score/ScoreService.java=UTF-8
+encoding//src/main/java/com/green/biz/student/StudentService.java=UTF-8
+encoding//src/main/java/com/green/view/controller/RegisterController.java=UTF-8
+encoding//src/main/java/com/green/view/controller/ScoreController.java=UTF-8
+encoding//src/main/java/com/green/view/controller/StudentController.java=UTF-8
+encoding//src/main/java/com/green/view/controller/SubjectController.java=UTF-8

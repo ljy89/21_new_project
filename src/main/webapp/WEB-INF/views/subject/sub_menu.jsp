@@ -2,9 +2,15 @@
   pageEncoding="UTF-8"%>  
 <meta charset="UTF-8">   
   <nav id="sub_menu">
-    <ul>
-      <li><a href="cart_list">장바구니(cart)내역</a></li>
-      <li><a href="mypage">진행중인 주문내역</a></li>
-      <li><a href="order_all">총 주문내역</a></li>
+  	
+  	<ul>
+      <li><span style="font-size: 20px; ">과목조회</span></li>
     </ul>
+    
+   <div id="sub_menu_div">
+	   	 <ul>
+	      <li><a href="major">전공과목</a></li>
+	      <li><a href="liberalArts">교양과목</a></li>
+	    </ul>
+   </div>
   </nav> 

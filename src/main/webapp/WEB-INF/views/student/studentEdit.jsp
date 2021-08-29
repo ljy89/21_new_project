@@ -20,7 +20,8 @@
    }   
 </script>
 <article>
-<h2>회원정보</h2>   
+<br>
+<h1>회원정보</h1>   
 <form name="frm" method="post">
 <table>
    <tr>
@@ -40,9 +41,10 @@
         <td><input name="phone" type="text" value="${studentVO.phone}"><br> </td>  
     </tr>
 </table>
-
- <input type="button" class="btn" value="수정" onClick="go_rep('${qnaVO.qseq}')">    
-<input type="button" class="btn" value="목록" onClick="go_list()">
+<br>
+ <input type="button" class="submit" value="수정" onClick="go_rep('${qnaVO.qseq}')">    
+<input type="button" class="submit" value="목록" onClick="go_list()">
+<br>
 </form>
 </article>
 <%@ include file="../footer.jsp"%>

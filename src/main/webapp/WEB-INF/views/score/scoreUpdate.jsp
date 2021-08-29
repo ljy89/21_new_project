@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
+<%@ include file="header.jsp"%>
 <%@ include file="sub_menu.jsp"%>
 
 <!-- productList.jsp 참고 -->
 <article>
-<h1>성적 확인</h1>	
+<h1>성적 등록</h1>	
 <form name="frm" id="prod_form" method="post">
 
 
@@ -25,16 +25,25 @@
 	<c:otherwise>
 	<c:forEach items="${scoreList}" var="scoreVO">
     <tr>
-      <td style="text-align: left; padding-left: 50px; padding-right: 0px;">${scoreVO.name}</td>
-   	  <td><input type="text" id="score" name="score" size="5"></td>
+	  
+      <td style="text-align: left; padding-left: 50px; padding-right: 0px;">
+      	${scoreVO.sname}
+      	<input type="checkbox" id="rdseq" name="rdseq" value= "${scoreVO.rdseq}" checked="checked" style="display: none;">
+      </td>
+   	  <td><input type="text" id="score" name="score" size="6" value="${scoreVO.score}"></td>
+    </tr>
+    <tr>
+    	<td><input type="hidden" name="sseq" value="${scoreVO.sseq}"></td>
+    	
     </tr>
     </c:forEach>
-    <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr>
+    <!--  <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr>-->
 	</c:otherwise>	
 </c:choose>  
 </table>
-<input class="btn" type="button" value="수정" onClick="go_mod_save('${productVO.pseq}')">           
-<input class="btn" type="button" value="취소" onClick="go_mov()">
+<!-- <input class="btn" type="button" value="등록" onClick="score_mod_save('${scoreVO.rdseq}')"> -->
+<input class="btn" type="button" value="등록" onClick="score_mod_save()">           
+<input class="btn" type="reset" value="취소" >
 </form> 
  <%@ include file="page_area.jsp" %>
 </article>

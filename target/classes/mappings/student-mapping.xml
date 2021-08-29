@@ -16,7 +16,7 @@
 	
 	<!-- 모두 조회 -->
 	<select id="getStdentList" resultType="student">
-		SELECT s.id sid, s.name sname, s.email semail, d.name dname, s.phone phone
+		SELECT s.id sid, s.name sname, s.email email, d.name dname, s.phone phone
 		FROM student s, department d
 		WHERE d.dseq = s.dseq
 	</select>
@@ -40,5 +40,12 @@
 		WHERE id=#{sid}
 	
 	</update>
+	<!-- 직원이 회원목록 조회 -->
+	<select id="listStudent" resultType="student">
+		SELECT s.id sid, s.name sname, s.email email, d.name dname, s.phone phone
+		FROM student s, department d
+		WHERE d.dseq = s.dseq
+		  AND s.name LIKE '%'||#{sname}||'%'
+	</select>
 	
 </mapper>

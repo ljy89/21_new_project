@@ -13,7 +13,8 @@
    }   
 </script>
 <article>
-<h2>회원정보</h2>   
+<br>
+<h1>회원정보</h1>   
 <form name="frm" method="post">
 
 <table>
