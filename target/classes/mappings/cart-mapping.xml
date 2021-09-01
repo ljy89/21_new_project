@@ -27,4 +27,23 @@
 		DELETE FROM excart
 		WHERE cseq=#{cseq}
 	</delete>	
+	
+	<!-- 체크박스로 들어온 cseq 번호로 sseq 번호 조회 -->
+	<select id="selectSseqByCseq" resultType="int">
+		SELECT sub.sseq 
+		FROM student s, excart c, subject sub
+		WHERE s.id= #{sid}
+			AND c.cseq = #{cseq}
+			AND s.id = c.id
+			AND c.sseq = sub.sseq
+	</select>
+	<!-- 수강과목에 있으면 sseq 반환 -->
+	<select id="getSseq" resultType="cart">
+		SELECT d.sseq ,s.id sid 
+		FROM student s, register r, register_detail d
+		WHERE s.id = #{sid}
+				and d.sseq = #{sseq}
+				and s.id = r.id
+				and r.rseq = d.rseq
+	</select>
 </mapper>

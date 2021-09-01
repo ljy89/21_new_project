@@ -111,7 +111,7 @@ public class StudentController {
 		return "student/login";
 	}
 	
-	@RequestMapping(value="/studentDetail", method=RequestMethod.GET)
+	@RequestMapping(value="/studentDetail")
 	public String studentDetilView(StudentVO vo, HttpSession session, Model model) {
 		
 		StudentVO loginUser = (StudentVO) session.getAttribute("loginUser");

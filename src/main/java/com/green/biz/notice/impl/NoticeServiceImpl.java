@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.green.biz.dao.NoticeDAO;
 import com.green.biz.dto.NoticeVO;
 import com.green.biz.notice.NoticeService;
+import com.green.biz.utils.Criteria;
 
 @Service("noticeSerive")
 public class NoticeServiceImpl implements NoticeService {
@@ -49,6 +50,18 @@ public class NoticeServiceImpl implements NoticeService {
 	public void deleteNotice(int nseq) {
 		nDao.deleteNotice(nseq);
 
+	}
+
+	@Override
+	public List<NoticeVO> getBoardListWithPaging(Criteria criteria, String key) {
+		
+		return nDao.getBoardListWithPaging(criteria, key);
+	}
+
+	@Override
+	public int countBoardList(String key) {
+		
+		return nDao.countBoardList(key);
 	}
 
 }

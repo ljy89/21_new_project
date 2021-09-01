@@ -23,6 +23,25 @@
 		ORDER BY s.name
 	</select>
 	
+	<select id="subjectByProfessorWithPagin" parameterType="hashMap" resultType="professor">
+		<![CDATA[
+		SELECT sseq, subname, dname, time, pid
+			FROM(
+    			SELECT row_number() over(ORDER BY subname) rn, sseq, subname, dname, time, pid
+   				 FROM subject_by_professor
+   				 WHERE subname LIKE '%'||#{key}||'%'
+    					AND pid=#{pid})
+    		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
+			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	
+	<!-- 조회한 교수별 과목의 갯수 -->
+	<select id="countByProfessor" parameterType="hashMap" resultType="int">
+		SELECT COUNT(*) FROM subject_by_professor
+		WHERE subname LIKE '%'||#{key}||'%'
+    		AND pid=#{pid}
+	</select>
 	<select id="ProSubjectDetail" parameterType="int" resultType="professor">
 		SELECT s.name subname , d.name dname, s.time, p.name pname, s.content, s.location, s.majoryn, s.sseq
 		FROM subject s, department d, professor p

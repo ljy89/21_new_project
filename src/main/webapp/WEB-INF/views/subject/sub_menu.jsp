@@ -9,8 +9,8 @@
     
    <div id="sub_menu_div">
 	   	 <ul>
-	      <li><a href="major">전공과목</a></li>
-	      <li><a href="liberalArts">교양과목</a></li>
+	      <li><a href="major_list">전공과목</a></li>
+	      <li><a href="liberalArts_list">교양과목</a></li>
 	    </ul>
    </div>
   </nav> 

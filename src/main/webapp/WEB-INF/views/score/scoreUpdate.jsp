@@ -30,21 +30,23 @@
       	${scoreVO.sname}
       	<input type="checkbox" id="rdseq" name="rdseq" value= "${scoreVO.rdseq}" checked="checked" style="display: none;">
       </td>
-   	  <td><input type="text" id="score" name="score" size="6" value="${scoreVO.score}"></td>
+   	  <td>
+   	  		<input type="text" id="score" name="score" size="6" value="${scoreVO.score}">
+   	  		<input type="hidden" name="sseq" value="${scoreVO.sseq}">
+   	  </td>
     </tr>
-    <tr>
-    	<td><input type="hidden" name="sseq" value="${scoreVO.sseq}"></td>
-    	
-    </tr>
+    
     </c:forEach>
     <!--  <tr><td colspan="6" style="text-align: center;"> ${paging} </td></tr>-->
 	</c:otherwise>	
 </c:choose>  
 </table>
 <!-- <input class="btn" type="button" value="등록" onClick="score_mod_save('${scoreVO.rdseq}')"> -->
+<br>
 <input class="btn" type="button" value="등록" onClick="score_mod_save()">           
 <input class="btn" type="reset" value="취소" >
 </form> 
- <%@ include file="page_area.jsp" %>
+<br>
+<%-- <%@ include file="page_area.jsp" %> --%>
 </article>
 <%@ include file="../footer.jsp" %>

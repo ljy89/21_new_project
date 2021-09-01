@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.green.biz.dto.ScoreVO;
 import com.green.biz.dto.StudentVO;
+import com.green.biz.utils.Criteria;
 
 @Repository
 public class ScoreDAO {
@@ -50,5 +51,18 @@ public class ScoreDAO {
 	
 	public List<ScoreVO> confirmMyScore(String sid){
 		return mybatis.selectList("ScoreDAO.confirmMyScore", sid);
+	}
+	
+	public List<ScoreVO> subjectListByProfessorWithPaging(Criteria criteria, String pid) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("criteria", criteria);
+		map.put("pid", pid);
+		
+		return mybatis.selectList("ScoreDAO.subjectListByProfessorWithPaging", map);
+	}
+	
+	public int countScoreSubList(String pid) {
+		
+		return mybatis.selectOne("ScoreDAO.countScoreSubList", pid);
 	}
 }

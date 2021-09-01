@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.green.biz.dto.ScoreVO;
 import com.green.biz.dto.StudentVO;
+import com.green.biz.utils.Criteria;
 
 public interface ScoreService {
 
@@ -21,4 +22,8 @@ public interface ScoreService {
 	public int getSore(int rdseq);
 	
 	public List<ScoreVO> confirmMyScore(String sid);
+	
+	public List<ScoreVO> subjectListByProfessorWithPaging(Criteria criteria, String pid);
+	
+	public int countScoreSubList(String pid);
 }

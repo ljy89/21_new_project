@@ -28,4 +28,13 @@ public class CartDAO {
 	public void deleteCart(int cseq) {
 		mybatis.delete("CartDAO.deleteCart", cseq);
 	}
+	
+	public int getSseqByCseq(CartVO vo) {
+		
+		return mybatis.selectOne("CartDAO.selectSseqByCseq", vo);
+	}
+	
+	public CartVO getSseq(CartVO vo) {
+		return mybatis.selectOne("CartDAO.getSseq", vo);
+	}
 }

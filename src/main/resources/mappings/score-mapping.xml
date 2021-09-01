@@ -44,11 +44,31 @@
 	<!-- 교수 개설 과목 조회 -->
 	
 	<select id="subjectListByProfessor" parameterType="String" resultType="score">
-		SELECT s.sseq, s.name subname, d.name dname, s.time
-		FROM subject s, department d
-		WHERE id = #{pid}
-		  AND s.dseq = d.dseq
+		SELECT *
+		FROM subjectListByProfessor
+		WHERE pid = #{pid}
 		
+	</select>
+	
+	<!-- 교수 개설 과목 페이징 조회 -->
+	<select id="subjectListByProfessorWithPaging" parameterType="hashMap" resultType="score">
+		<![CDATA[
+		SELECT sseq, subname, dname, time, pid
+			FROM(
+    			SELECT row_number() over(ORDER BY subname) rn, sseq, subname, dname, time, pid
+   				 FROM subjectListByProfessor
+   				 WHERE pid = #{pid})
+    					
+    		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
+			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	
+	<!-- 조회할 게시글 수 -->
+	<select id="countScoreSubList" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM subjectListByProfessor
+		WHERE pid = #{pid}
 	</select>
 	
 	<select id="subjectByKey" parameterType="hashMap" resultType="score">

@@ -16,6 +16,7 @@
   </td>
   </tr>
 </table>
+<br>
 <table id="productList">
     <tr>
         <th>번호</th><th>과목명</th><th>학과명</th><th>수강일시</th>
@@ -47,6 +48,8 @@
 </c:choose>  
 </table>
 </form> 
+<br>
  <%@ include file="page_area.jsp" %>
+ <br>
 </article>
 <%@ include file="../footer.jsp" %>

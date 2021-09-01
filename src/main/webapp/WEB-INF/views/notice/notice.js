@@ -1,26 +1,3 @@
-/*
- *  교수, 과목 이름으로 조회 
- */
-function go_search_major() {
-	$("#subject_form").attr("action", "major").submit();
-}
-
-function go_search() {
-	$("#subject_form").attr("action", "liberalArts").submit();
-}
-
-/* 
- *  전체 조회
- */
-function go_total_major() {
-	$("#key").val("");
-	$("#subject_form").attr("action", "major").submit();
-}
-
-function go_total() {
-	$("#key").val("");
-	$("#subject_form").attr("action", "liberalArts").submit();
-}
 
 /*
  * 상세 페이지로 이동
@@ -48,20 +25,4 @@ function board_wrt() {
 
 function board_save() {
 	$("#write_form").attr("action", "board_write").submit();
-}
-/*상세페이지에서 --> 전공목록으로 이동
- * */
-function go_list() {
-	$("#key").val("");
-	$("#detail_form").attr("action", "major").submit();
-}
-
-
-/*
- * 내 수강 내역에서 강의 삭제
- * 
- */
-
-function go_register_delete() {
-	$("#theform").attr("action", "go_register_delete").submit();
 }

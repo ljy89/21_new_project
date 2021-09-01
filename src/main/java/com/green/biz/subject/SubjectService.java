@@ -25,6 +25,15 @@ public interface SubjectService {
 	public List<SubjectVO> mySubjectList(String id);
 	
 	public List<SubjectVO> getMajorListWithPaging(Criteria criteria, String key);
+	public List<SubjectVO> getMajorListWithSearch(Criteria criteria, String key, int dseq);
 	
-	public int countMajorList(String subname);
+	public List<SubjectVO> getliberalArtsListWithPaging(Criteria criteria, String key);
+	
+	public int countMajorList(String key);
+	
+	public int countliberalArtsLisList(String key);
+	
+	public int countSearchMajorList(String key, int dseq);
+	
+	
 }

@@ -7,6 +7,7 @@ import com.green.biz.dao.ScoreDAO;
 import com.green.biz.dto.ScoreVO;
 import com.green.biz.dto.StudentVO;
 import com.green.biz.score.ScoreService;
+import com.green.biz.utils.Criteria;
 
 
 @Service("scoreService")
@@ -55,5 +56,19 @@ public class ScoreServiceImpl implements ScoreService {
 		
 		return sDao.confirmMyScore(sid);
 	}
+
+	@Override
+	public List<ScoreVO> subjectListByProfessorWithPaging(Criteria criteria, String pid) {
+		
+		return sDao.subjectListByProfessorWithPaging(criteria, pid);
+	}
+
+	@Override
+	public int countScoreSubList(String pid) {
+		
+		return sDao.countScoreSubList(pid);
+	}
+
+	
 
 }

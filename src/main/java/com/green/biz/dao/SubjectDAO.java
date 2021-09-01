@@ -62,6 +62,7 @@ public class SubjectDAO {
 		return mybatis.selectList("SubjectDAO.mySubjectList", id);
 	}
 	
+	
 	public List<SubjectVO> getMajorListWithPaging(Criteria criteria, String key){
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("criteria", criteria);
@@ -69,9 +70,41 @@ public class SubjectDAO {
 		return mybatis.selectList("SubjectDAO.majorListWithPaging" ,map);
 	}
 	
-	public int countMajorList(String subname) {
+	
+	public List<SubjectVO> getMajorListWithSearch(Criteria criteria, String key, int dseq){
+		HashMap<String, Object> map = new HashMap<>();
 		
-		return mybatis.selectOne("SubjectDAO.countMajorList", subname);
+		map.put("criteria", criteria);
+		map.put("key", key);
+		map.put("dseq", dseq);
+		
+		return mybatis.selectList("SubjectDAO.majorListWithSearch" ,map);
+	}
+	
+	public List<SubjectVO> getliberalArtsListWithPaging(Criteria criteria, String key){
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("criteria", criteria);
+		map.put("key", key);
+		return mybatis.selectList("SubjectDAO.liberalArtsListWithPaging" ,map);
+	}
+	
+	
+	public int countMajorList(String key) {
+		
+		return mybatis.selectOne("SubjectDAO.countMajorList", key);
+		
+	}
+	
+	public int countSearchMajorList(String key, int dseq) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("dseq", dseq);
+		map.put("key", key);
+		return mybatis.selectOne("SubjectDAO.countSearchMajorList", map);
+		
+	}
+	
+	public int countliberalArtsLisList(String key) {
+		return mybatis.selectOne("SubjectDAO.countliberalArtsLisList", key);
 	}
 }
 

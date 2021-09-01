@@ -38,4 +38,16 @@ public class CartServiceImpl implements CartService {
 
 	}
 
+	@Override
+	public int getSseqByCseq(CartVO vo) {
+		
+		return cDao.getSseqByCseq(vo);
+	}
+
+	@Override
+	public CartVO getSseq(CartVO vo) {
+		
+		return cDao.getSseq(vo);
+	}
+
 }

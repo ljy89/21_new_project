@@ -41,7 +41,7 @@
     	 ${noticeVO.subject}     
    		</a>
    	  </td>
-      <td> ${noticeVO.indate}</td>
+   	  <td><fmt:formatDate value="${noticeVO.indate}" type="date"/></td>
       <td> ${noticeVO.sid}</td>
     </tr>
     </c:forEach>
@@ -52,5 +52,6 @@
 </form> 
 <br>
  <%@ include file="page_area.jsp" %>
+ <br>
 </article>
 <%@ include file="../footer.jsp" %>

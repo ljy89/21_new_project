@@ -11,9 +11,13 @@
 <table id="search">
   <tr>
   <td class="search">
-     <select name="serch_key" id="serch_key">
-	    <option value="dname">과목명</option>
-	    <option value="pname">교수명</option>
+     <select name="dseq" id="serch_key">
+	    <option value="1">화학과</option>
+	    <option value="2">언론과</option>
+	    <option value="3">영문학과</option>
+	    <option value="4">국문학과</option>
+	    <option value="5">컴퓨터공학과</option>
+	    <option value="21">체육학과</option>
 	</select>
      <input type="text" name="key" id="key">
      <input class="btn" type="button" name="btn_search" value="검색" onClick="go_search_major()">

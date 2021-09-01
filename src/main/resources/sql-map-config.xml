@@ -12,7 +12,8 @@
 		<typeAlias type="com.green.biz.dto.AdminVO" alias="admin"></typeAlias>
 		<typeAlias type="com.green.biz.dto.QnaVO" alias="qna"></typeAlias>
 		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice"></typeAlias>
-		<typeAlias type="com.green.biz.dto.ProfessorVO" alias="professor"></typeAlias>			
+		<typeAlias type="com.green.biz.dto.ProfessorVO" alias="professor"></typeAlias>
+		<typeAlias type="com.green.biz.dto.AnnouncementVO" alias="announcement"></typeAlias>				
 	</typeAliases>
 	
 	<mappers>
@@ -25,5 +26,6 @@
 		<mapper resource="mappings/qna-mapping.xml" />
 		<mapper resource="mappings/notice-mapping.xml" />
 		<mapper resource="mappings/professor-mapping.xml" />
+		<mapper resource="mappings/announcement-mapping.xml" />
 	</mappers>
 </configuration>

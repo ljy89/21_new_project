@@ -9,16 +9,16 @@
 <link href="CSS/subpage.css" rel="stylesheet">
 <style type="text/css">
 body{   
-  background-color:#B96DB5;
-  font-family: Verdana;
+  background-color: #cbbfae;
+  font-family: "Nanum Barun Gothic", sans-serif;
 }
 #wrap{     
   margin: 0 20px;
 }
 h1 {
-  font-family: "Times New Roman", Times, serif;
+  font-family: "Nanum Barun Gothic", sans-serif;
   font-size: 45px;
-  color: #CCC;
+  color: #987c4d;
   font-weight: normal;
 }
 input[type=button], input[type=submit] {

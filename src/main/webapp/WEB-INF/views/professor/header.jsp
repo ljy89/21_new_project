@@ -15,6 +15,7 @@
    <script type="text/javascript" src="professor/professor.js"></script>
    <script type="text/javascript" src="score/score.js"></script>
    <script type="text/javascript" src="notice/notice.js"></script>
+   <script type="text/javascript" src="admin/announcement/announcement.js"></script>
   <script type="text/javascript" src="slide.js"></script>
 </head>
 

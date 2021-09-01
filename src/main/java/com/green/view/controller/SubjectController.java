@@ -82,10 +82,10 @@ public class SubjectController {
 		return "subject/subjectDetail";
 	}
 	
-	@RequestMapping(value="subject_major_list")
-	public String adminProductList(
-			@RequestParam(value="key", defaultValue="") String key,
-			Criteria criteria, HttpSession session, Model model) {
+	
+	@RequestMapping(value="major_list")
+	public String majorList(@RequestParam(value="key", defaultValue="") String key,
+							Criteria criteria, HttpSession session, Model model) {
 		
 		StudentVO loginUser = (StudentVO)session.getAttribute("loginUser");
 		
@@ -96,12 +96,43 @@ public class SubjectController {
 			List<SubjectVO> majorList = subjectService.getMajorListWithPaging(criteria, key);
 			
 			PageMaker pageMaker = new PageMaker();
-			pageMaker.setCri(criteria); //�쁽�옱 �럹�씠吏��� �럹�씠吏��떦 �빆紐� �닔 �꽕�젙
+			pageMaker.setCri(criteria); 
 	
 			
 			int totalCount = subjectService.countMajorList(key);
 			pageMaker.setTotalCount(totalCount);
-			System.out.println("�럹�씠吏� �젙蹂� =" +pageMaker);
+			System.out.println("PageMaker =" +pageMaker);
+			
+			model.addAttribute("majorListSize", majorList.size());
+			model.addAttribute("majorList", majorList);
+			model.addAttribute("pageMaker", pageMaker);
+			
+			return "subject/majorList";
+		}
+	}
+	 
+	
+	@RequestMapping(value="subject_major_list")
+	public String majorSearchList(@RequestParam(value="key", defaultValue="") String key,
+									@RequestParam(value="dseq", defaultValue="0") int dseq,
+									Criteria criteria, HttpSession session, Model model) {
+		
+		StudentVO loginUser = (StudentVO)session.getAttribute("loginUser");
+		
+		if (loginUser == null) {
+			return "student/login";
+		} else {
+			
+			List<SubjectVO> majorList = subjectService.getMajorListWithSearch(criteria, key, dseq);
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(criteria); 
+	
+			
+			int totalCount = subjectService.countSearchMajorList(key, dseq);
+			
+			pageMaker.setTotalCount(totalCount);
+			System.out.println("PageMaker =" +pageMaker);
 			
 			model.addAttribute("majorListSize", majorList.size());
 			model.addAttribute("majorList", majorList);
@@ -111,8 +142,58 @@ public class SubjectController {
 		}
 	}
 	
-	
-	
+	@RequestMapping(value = "liberalArts_list")
+	public String liveralArtsList(@RequestParam(value="key", defaultValue="") String key,
+									Criteria criteria, HttpSession session, Model model) {
+		
+		StudentVO loginUser = (StudentVO)session.getAttribute("loginUser");
+		
+		if (loginUser == null) {
+			return "student/login";
+		} else {
+			List<SubjectVO> liberalArtsList = subjectService.getliberalArtsListWithPaging(criteria, key);
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(criteria); 
+			
+			int totalCount = subjectService.countliberalArtsLisList(key);
+			pageMaker.setTotalCount(totalCount);
+			System.out.println("PageMaker =" +pageMaker);
+			
+			model.addAttribute("liberalArtsListSize", liberalArtsList.size());
+			model.addAttribute("pageMaker", pageMaker);
+			model.addAttribute("liberalArtsList", liberalArtsList);
+			
+			return "subject/liberalArtsList";
+		}
+	}
+	/*
+	@RequestMapping(value = "subject_liberalArts_list")
+	public String liveralArtsSearchList(@RequestParam(value="key", defaultValue="") String key,
+									Criteria criteria, HttpSession session, Model model) {
+		
+		StudentVO loginUser = (StudentVO)session.getAttribute("loginUser");
+		
+		if (loginUser == null) {
+			return "student/login";
+		} else {
+			List<SubjectVO> liberalArtsList = subjectService.getliberalArtsListWithPaging(criteria, key);
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(criteria); 
+			
+			int totalCount = subjectService.countliberalArtsLisList(key);
+			pageMaker.setTotalCount(totalCount);
+			System.out.println("PageMaker =" +pageMaker);
+			
+			model.addAttribute("liberalArtsListSize", liberalArtsList.size());
+			model.addAttribute("pageMaker", pageMaker);
+			model.addAttribute("liberalArtsList", liberalArtsList);
+			
+			return "subject/liberalArtsList";
+		}
+	}
+	*/
 	@RequestMapping(value="/register_check_form")
 	public String idCheckAction(@RequestParam(value="sseq", defaultValue="", required=true) int sseq, 
 								HttpSession session,Model model, RegisterVO vo) {

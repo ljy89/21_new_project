@@ -14,6 +14,8 @@ import com.green.biz.dto.ProfessorVO;
 import com.green.biz.dto.ScoreVO;
 import com.green.biz.dto.StudentVO;
 import com.green.biz.score.ScoreService;
+import com.green.biz.utils.Criteria;
+import com.green.biz.utils.PageMaker;
 
 @Controller
 public class ScoreController {
@@ -21,6 +23,7 @@ public class ScoreController {
 	@Autowired
 	private ScoreService scoreService;
 	
+	/*
 	@RequestMapping(value="score_update")
 	public String scoreUpdateView(HttpSession session, Model model) {
 		
@@ -36,7 +39,34 @@ public class ScoreController {
 		
 		
 	}
+	*/
 	
+	@RequestMapping(value="score_update")
+	public String scoreUpdateView(HttpSession session, Model model, Criteria criteria) {
+		
+		ProfessorVO professorUser = (ProfessorVO)session.getAttribute("professorUser");
+		
+		 if(professorUser ==null) {
+				return "professor/login";
+			}else {
+				List<ScoreVO> scoreList = scoreService.subjectListByProfessorWithPaging(criteria,professorUser.getPid());
+				
+				PageMaker pageMaker = new PageMaker();
+				pageMaker.setCri(criteria); 
+				
+				int totalCount = scoreService.countScoreSubList(professorUser.getPid());
+				pageMaker.setTotalCount(totalCount);
+				System.out.println("score_update =" +pageMaker);
+				
+				model.addAttribute("scoreListSize", scoreList.size());
+				model.addAttribute("scoreList", scoreList);
+				model.addAttribute("pageMaker", pageMaker);
+				
+				return "score/subjectList";
+			}
+		
+		
+	}
 	@RequestMapping(value="score_subject_list")
 	public String scoreSubjectListView(@RequestParam(value="key", defaultValue="") String key,
 									HttpSession session, Model model) {

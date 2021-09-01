@@ -3,6 +3,7 @@ package com.green.biz.notice;
 import java.util.List;
 
 import com.green.biz.dto.NoticeVO;
+import com.green.biz.utils.Criteria;
 
 public interface NoticeService {
 
@@ -17,4 +18,8 @@ public interface NoticeService {
 	public void insertNotice(NoticeVO vo);
 	
 	public void deleteNotice(int nseq);
+	
+	public List<NoticeVO> getBoardListWithPaging(Criteria criteria, String key);
+	
+	public int countBoardList(String key);
 }

@@ -10,28 +10,35 @@
 	<div>
 		<table id="list">
 		<input type="hidden" id="sseq" name="sseq" value="${subjectVO.sseq}"> <br>
-		  <tr>
-		    <th>과목명</th>
-		    <td>${subjectVO.dname}</td>
-		    </tr>    
-		    <tr>
-		        <th align="center" >교수명</th>
-		        <td>${subjectVO.pname}</td>
-		    </tr>
-		    
-		    <tr>
-		        <th >수업시간</th>
-		        <td>${subjectVO.time}</td>
-		        
-		    </tr>
-		     <tr>
-		     	<th>수업 소개</th>
-		        <td>${subjectVO.content}</td>
-		     </tr>
-		    <tr>
-		        <th>수업장소</th>
-		       <td>${subjectVO.location}</td>
-		    </tr>
+			<tr>
+				<th>학과명</th>
+				<td>${subjectVO.dname}</td>
+			</tr>
+			
+			<tr>
+				<th>과목명</th>
+				<td>${subjectVO.subname}</td>
+			</tr>
+			    
+			<tr>
+				<th align="center" >교수명</th>
+				<td>${subjectVO.pname}</td>
+			</tr>
+					    
+			<tr>
+				<th >수업 시간</th>
+				<td>${subjectVO.time}</td>
+			</tr>
+			
+			<tr>
+				<th>수업 소개</th>
+				<td>${subjectVO.content}</td>
+			</tr>
+			
+			<tr>
+				<th>수업 장소</th>
+				<td>${subjectVO.location}</td>
+			</tr>
 		    
 		     <!--[7]<tr>
 		     <th>상품이미지</th>

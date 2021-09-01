@@ -80,19 +80,19 @@
           <div id="links">
             <ul>
               <li>
-                <a href="#">
+                <a href="major_list">
                   <span id="quick-icon1"></span>
                   <p>과목조회</p>
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="my_register_list">
                   <span id="quick-icon2"></span>
                   <p>내수강내역</p>
                 </a>            
               </li>
               <li>
-                <a href="#">
+                <a href="qna_list">
                   <span id="quick-icon3"></span>
                   <p>문의하기</p>
                 </a>            

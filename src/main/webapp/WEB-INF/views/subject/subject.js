@@ -3,11 +3,11 @@
  *  교수, 과목 이름으로 조회 
  */
 function go_search_major() {
-	$("#subject_form").attr("action", "major").submit();
+	$("#subject_form").attr("action", "subject_major_list").submit();
 }
 
 function go_search() {
-	$("#subject_form").attr("action", "liberalArts").submit();
+	$("#subject_form").attr("action", "liberalArts_list").submit();
 }
 
 /* 
@@ -15,12 +15,12 @@ function go_search() {
  */
 function go_total_major() {
 	$("#key").val("");
-	$("#subject_form").attr("action", "major").submit();
+	$("#subject_form").attr("action", "major_list").submit();
 }
 
 function go_total() {
 	$("#key").val("");
-	$("#subject_form").attr("action", "liberalArts").submit();
+	$("#subject_form").attr("action", "liberalArts_list").submit();
 }
 
 /*

@@ -1,7 +1,7 @@
 package com.green.biz.dto;
 
 public class ProfessorVO {
-	//  s.content, s.location, s.majoryn
+	
 	private String pid;
 	private String pname;
 	private String dname;
@@ -86,6 +86,8 @@ public class ProfessorVO {
 				+ subname + ", time=" + time + ", content=" + content + ", location=" + location + ", majoryn="
 				+ majoryn + ", sseq=" + sseq + ", dseq=" + dseq + "]";
 	}
+	
+	
 	
 	
 	

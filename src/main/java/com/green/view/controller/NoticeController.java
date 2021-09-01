@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.green.biz.dto.NoticeVO;
 import com.green.biz.dto.StudentVO;
 import com.green.biz.notice.NoticeService;
+import com.green.biz.utils.Criteria;
+import com.green.biz.utils.PageMaker;
 
 
 @Controller
@@ -20,16 +22,28 @@ public class NoticeController {
 	private NoticeService noticeService;
 
 	
-	@RequestMapping(value="board_list", method=RequestMethod.GET)
-	public String boardList(HttpSession session, Model model) {
+	@RequestMapping(value="board_list")
+	public String boardList(@RequestParam(value="key", defaultValue="") String key,
+								HttpSession session, Model model, Criteria criteria) {
 		
 		StudentVO loginUser = (StudentVO)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			return "student/login";
 		}else {
-			List<NoticeVO> noticeList = noticeService.getNoticeList();
+			List<NoticeVO> noticeList = noticeService.getBoardListWithPaging(criteria, key);
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(criteria); 
+			
+			int totalCount = noticeService.countBoardList(key);
+			pageMaker.setTotalCount(totalCount);
+			System.out.println("PageMaker =" +pageMaker);
+			
+			model.addAttribute("noticeListSize", noticeList.size());
 			model.addAttribute("noticeList", noticeList);
+			model.addAttribute("pageMaker", pageMaker);
+			
 			return "notice/noticeList";
 		}
 

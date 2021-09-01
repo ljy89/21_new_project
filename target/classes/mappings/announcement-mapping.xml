@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AnnouncementDAO">
+
+	<!-- 모든 공지글 조회 -->
+	<select id="getAnnounceList" resultType="announcement">
+		SELECT  aseq, subject, content, indate, admin_id
+		FROM announcement
+		ORDER BY indate DESC
+	</select>
+	
+	<!-- 제목 검색 -->
+	<select id="announceByTitle" parameterType="String" resultType="announcement">
+		SELECT aseq, subject, content, indate, admin_id
+		  FROM announcement
+		 WHERE subject LIKE '%'||#{subject}||'%'
+		 ORDER BY indate DESC
+	</select>
+	
+	<!-- 상세 보기 -->
+	<select id="getAnnounce" resultType="announcement">
+		SELECT aseq, subject, content, indate, admin_id
+		FROM announcement
+		 WHERE aseq=#{aseq}
+	</select>
+	
+	<!-- 수정 -->
+	<update id="updateAnnounce">
+		UPDATE announcement SET subject=#{subject} , content=#{content}
+		 WHERE aseq=#{aseq} 
+	</update>
+	
+	
+	<!-- 등록 -->
+	<insert id="insertAnnounce">
+		INSERT INTO announcement(aseq, subject, content)
+		VALUES(announcement_seq.NEXTVAL, #{subject}, #{content})
+	</insert>
+	
+	<!-- 삭제 -->
+	<delete id="deleteAnnounce">
+		DELETE FROM announcement
+		WHERE aseq=#{aseq}
+	</delete>
+	
+	<!-- 공지 목록 페이징 -->
+	<select id="getAnnounceListWithPaging" parameterType="hashMap" resultType="announcement">
+	
+		<![CDATA[
+		SELECT aseq, subject, content, indate, admin_id
+			FROM(
+    			SELECT row_number() over(ORDER BY indate DESC) rn, aseq, subject, content, indate, admin_id
+   				 FROM announcement
+   				 WHERE subject LIKE '%'||#{key}||'%')
+    		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
+			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	
+	<!-- 공지 게시글 수 -->
+	<select id="countAnnounceList" parameterType="String" resultType="int">
+		SELECT COUNT(*) 
+		FROM announcement
+		WHERE subject LIKE '%'||#{key}||'%'
+    		
+	</select>
+	
+</mapper>

@@ -15,6 +15,7 @@
    <script type="text/javascript" src="professor/professor.js"></script>
    <script type="text/javascript" src="score/score.js"></script>
    <script type="text/javascript" src="notice/notice.js"></script>
+   <script type="text/javascript" src="admin/announcement/announcement.js"></script>
   <script type="text/javascript" src="slide.js"></script>
 </head>
 
@@ -58,8 +59,8 @@
             <ul id="topMenu">
               <li><a href="#">과목조회 <span>▼</span></a>
                 <ul>
-                  <li><a href="subject_major_list">전공과목</a></li>
-                  <li><a href="liberalArts">교양과목</a></li>
+                  <li><a href="major_list">전공과목</a></li>
+                  <li><a href="liberalArts_list">교양과목</a></li>
                 </ul>
               </li>
               <li><a href="#">수강신청내역 <span>▼</span></a>
@@ -72,6 +73,7 @@
               <li><a href="studentDetail">마이페이지</a></li>
               <li><a href="#">게시판 <span>▼</span></a>
                 <ul>
+                  <li><a href="announcement_list">공지 게시판</a></li>
                   <li><a href="board_list">자유 게시판</a></li>
                   <li><a href="qna_list">1:1 문의하기</a></li>
                 </ul>

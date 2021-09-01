@@ -44,4 +44,27 @@
 		DELETE FROM notice
 		WHERE nseq=#{nseq}
 	</delete>
+	
+	<!-- 게시판 목록 페이징 -->
+	<select id="getBoardListWithPaging" parameterType="hashMap" resultType="notice">
+	
+		<![CDATA[
+		SELECT nseq, subject, content, sid, indate, admin_id
+			FROM(
+    			SELECT row_number() over(ORDER BY indate DESC) rn, nseq, subject, content, id as sid, indate, admin_id
+   				 FROM notice
+   				 WHERE subject LIKE '%'||#{key}||'%'
+    					OR id LIKE '%'||#{key} ||'%')
+    		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
+			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	
+	<!-- 조회할 게시글 수 -->
+	<select id="countBoardList" parameterType="String" resultType="int">
+		SELECT COUNT(*) 
+		FROM notice
+		WHERE subject LIKE '%'||#{key}||'%'
+    		OR id LIKE '%'||#{key} ||'%'
+	</select>
 </mapper>

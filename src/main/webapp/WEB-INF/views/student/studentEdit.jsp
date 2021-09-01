@@ -4,12 +4,7 @@
 <%@ include file="sub_menu.jsp"%>
 <script type="text/javascript">
 <!-- admin css 추가-->
-   function go_list()
-   {
-	   var theForm = document.frm;
-	   theForm.action="studentDetail";
-	   theForm.submit();
-   }
+  
 
    function go_rep(qseq)
    {
@@ -43,7 +38,8 @@
 </table>
 <br>
  <input type="button" class="submit" value="수정" onClick="go_rep('${qnaVO.qseq}')">    
-<input type="button" class="submit" value="목록" onClick="go_list()">
+<input type="reset" class="submit" value="취소">
+<input type="button" class="submit" value="목록" onClick="go_detail_list()">
 <br>
 </form>
 </article>

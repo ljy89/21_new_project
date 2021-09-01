@@ -35,6 +35,6 @@
 </table>
 
 </form> 
- <%@ include file="page_area.jsp" %>
+ <%--<%@ include file="page_area.jsp" %> --%>
 </article>
 <%@ include file="../footer.jsp" %>

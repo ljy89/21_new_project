@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.green.biz.dao.ProfessorDAO;
 import com.green.biz.dto.ProfessorVO;
 import com.green.biz.professor.ProfessorService;
+import com.green.biz.utils.Criteria;
 
 @Service("professorService")
 public class ProfessorServiceImpl implements ProfessorService {
@@ -49,6 +50,18 @@ public class ProfessorServiceImpl implements ProfessorService {
 	public void insertSubject(ProfessorVO vo) {
 		pDao.insertSubject(vo);
 		
+	}
+
+	@Override
+	public List<ProfessorVO> subjectByProfessorWithPagin(Criteria criteria, String key, String pid) {
+		
+		return pDao.subjectByProfessorWithPagin(criteria, key, pid);
+	}
+
+	@Override
+	public int countByProfessor(String key, String pid) {
+		
+		return pDao.countByProfessor(key, pid);
 	}
 
 	

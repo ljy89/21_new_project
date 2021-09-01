@@ -15,6 +15,7 @@
    <script type="text/javascript" src="professor/professor.js"></script>
    <script type="text/javascript" src="score/score.js"></script>
    <script type="text/javascript" src="notice/notice.js"></script>
+   <script type="text/javascript" src="admin/announcement/announcement.js"></script>
   <script type="text/javascript" src="slide.js"></script>
 </head>
 
@@ -59,7 +60,7 @@
 	              	<a href="admin_qna_list">Q&amp;A(1:1) 답변<span>▼</span></a>
 	              </li>
 	              <li>
-	              	<a href="admin_student_list">학생 리스트 <span>▼</span></a>
+	              	<a href="admin_announcement_list">공지 리스트 <span>▼</span></a>
 	              </li>
 	            </ul>
 	          </nav>

@@ -49,7 +49,12 @@ function go_save() {
 }
 
 
-
+function go_detail_list()
+{
+	   var theForm = document.frm;
+	   theForm.action="studentDetail";
+	   theForm.submit();
+}
 
 
 

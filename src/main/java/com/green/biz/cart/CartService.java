@@ -10,4 +10,6 @@ public interface CartService {
 	public void insertCart(CartVO vo);
 	public void updateCart(int cseq);
 	public void deleteCart(int cseq);
+	public int getSseqByCseq(CartVO vo);
+	public CartVO getSseq(CartVO vo);
 }

@@ -15,6 +15,8 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.green.biz.dto.ProfessorVO;
 import com.green.biz.professor.ProfessorService;
+import com.green.biz.utils.Criteria;
+import com.green.biz.utils.PageMaker;
 
 @Controller
 @SessionAttributes("professorUser")
@@ -57,13 +59,43 @@ public class ProfessorController {
 	
 	@RequestMapping(value="pro_subject_list")
 	public String SubjectListView(@RequestParam(value="key", defaultValue="") String key,
+									Criteria criteria, HttpSession session, Model model) {
+		
+		ProfessorVO professorUser = (ProfessorVO)session.getAttribute("professorUser");
+		
+
+		 if(professorUser ==null) {
+			return "professor/login";
+		}else {
+			List<ProfessorVO> subjectList = professorService.subjectByProfessorWithPagin(criteria, key, professorUser.getPid());
+			
+			PageMaker pageMaker = new PageMaker();
+			pageMaker.setCri(criteria); 
+			
+			int totalCount = professorService.countByProfessor(key, professorUser.getPid());
+			System.out.println(totalCount);
+			pageMaker.setTotalCount(totalCount);
+			System.out.println("pro_subject_list=" +pageMaker);
+			
+			model.addAttribute("subjectListSize", subjectList.size());
+			model.addAttribute("subjectList", subjectList);
+			model.addAttribute("pageMaker", pageMaker);
+			
+			return "professor/subjectList";
+		}
+	
+		
+		
+	}
+	
+	/*
+	@RequestMapping(value="pro_subject_list")
+	public String SubjectListView(@RequestParam(value="key", defaultValue="") String key,
 									HttpSession session, Model model) {
 		
 		ProfessorVO professorUser = (ProfessorVO)session.getAttribute("professorUser");
-		//System.out.println(professorUser.getPid());
 		
-		
-		  
+
 		 if(professorUser ==null) {
 			return "professor/login";
 		}else {
@@ -77,6 +109,7 @@ public class ProfessorController {
 		
 		
 	}
+	*/
 	@RequestMapping(value="pro_subject_detail")
 	public String ProSubjectDetail(@RequestParam(value="sseq", defaultValue="")int sseq,
 									Model model) {

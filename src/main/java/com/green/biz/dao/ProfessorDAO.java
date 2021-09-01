@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.green.biz.dto.ProfessorVO;
+import com.green.biz.utils.Criteria;
 
 @Repository
 public class ProfessorDAO {
@@ -53,4 +54,26 @@ public class ProfessorDAO {
 	public void insertSubject(ProfessorVO vo) {
 		mybatis.insert("ProfessorDAO.insertSubject", vo);
 	}
+	
+	public List<ProfessorVO> subjectByProfessorWithPagin(Criteria criteria, String key, String pid){
+		
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("criteria", criteria);
+		map.put("key", key);
+		map.put("pid", pid);
+		
+		return mybatis.selectList("ProfessorDAO.subjectByProfessorWithPagin", map);
+	}
+	
+	public int countByProfessor(String key, String pid) {
+		
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("key", key);
+		map.put("pid", pid);
+		
+		return mybatis.selectOne("ProfessorDAO.countByProfessor", map);
+		
+	}
+	
 }

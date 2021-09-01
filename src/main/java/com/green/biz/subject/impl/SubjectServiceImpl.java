@@ -66,15 +66,39 @@ public class SubjectServiceImpl implements SubjectService {
 	}
 
 	@Override
+	public int countMajorList(String key) {
+		
+		return sDao.countMajorList(key);
+	}
+	
+	@Override
+	public int countliberalArtsLisList(String key) {
+		
+		return sDao.countliberalArtsLisList(key);
+	}
+
+	@Override
 	public List<SubjectVO> getMajorListWithPaging(Criteria criteria, String key) {
 		
 		return sDao.getMajorListWithPaging(criteria, key);
 	}
+	
+	@Override
+	public List<SubjectVO> getliberalArtsListWithPaging(Criteria criteria, String key) {
+		
+		return sDao.getliberalArtsListWithPaging(criteria, key);
+	}
 
 	@Override
-	public int countMajorList(String subname) {
+	public List<SubjectVO> getMajorListWithSearch(Criteria criteria, String key, int dseq) {
 		
-		return sDao.countMajorList(subname);
+		return sDao.getMajorListWithSearch(criteria, key, dseq);
+	}
+
+	@Override
+	public int countSearchMajorList(String key, int dseq) {
+		
+		return sDao.countSearchMajorList(key, dseq);
 	}
 
 

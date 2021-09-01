@@ -10,7 +10,7 @@
 <table>
   <tr>
   <td width="642">
-      상품명 
+      과목명 
      <input type="text" name="key" id="key">
      <input class="btn" type="button" name="btn_search" value="검색" onClick="pro_search()">
      <input class="btn" type="button" name="btn_total" value="전체보기 " onClick="pro_total()">
@@ -50,6 +50,8 @@
 </c:choose>  
 </table>
 </form> 
- <%--  <%@ include file="page_area.jsp"> --%>
+<br>
+ <%@ include file="page_area.jsp" %>  
+ <br>
 </article>
 <%@ include file="../footer.jsp" %>

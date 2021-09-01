@@ -70,24 +70,71 @@
 	</select>
 	
 	
-	<!-- 조회한 총 상품의 갯수 -->
+	<!-- 조회한 총 전공 과목의 갯수 -->
 	<select id="countMajorList" parameterType="String" resultType="int">
 		SELECT COUNT(*) FROM search_major
-		 WHERE subname LIKE '%'||#{subname}||'%'
+		 WHERE subname LIKE '%'||#{key}||'%'
+		 	OR pname LIKE '%'||#{key} ||'%'
 	</select>
 	
-	<!-- 페이지 번호별 상품 목록 -->
+	<!-- 조회한 총 교양 과목의 갯수 -->
+	<select id="countliberalArtsLisList" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM search_liberalArts
+		 WHERE subname LIKE '%'||#{key}||'%'
+		 	OR pname LIKE '%'||#{key} ||'%'
+	</select>
 	
+	<!-- 페이지 번호별 교양 목록 -->
+	
+	<select id="liberalArtsListWithPaging" parameterType="hashMap" resultType="subject">
+	<![CDATA[
+		SELECT subname, pname, time, dname, sseq
+			FROM(
+    			SELECT row_number() over(ORDER BY subname) rn,subname, pname, time, dname, sseq
+   				 FROM search_liberalArts
+    				WHERE subname LIKE '%'||#{key}||'%'
+    					OR pname LIKE '%'||#{key} ||'%')
+    		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
+			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	
+	<!-- 페이지 번호별 전공 목록 -->
 	<select id="majorListWithPaging" parameterType="hashMap" resultType="subject">
 	<![CDATA[
 		SELECT subname, pname, time, dname, sseq
 			FROM(
     			SELECT row_number() over(ORDER BY subname) rn,subname, pname, time, dname, sseq
    				 FROM search_major
-    				WHERE subname LIKE '%'||#{key}||'%')
+    				WHERE subname LIKE '%'||#{key}||'%'
+    					OR pname LIKE '%'||#{key} ||'%')
     		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
 			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
 		]]>
+	</select>
+	
+	<!--검색 할때 페이지 번호별 전공 목록 -->
+	<select id="majorListWithSearch" parameterType="hashMap" resultType="subject">
+	<![CDATA[
+		SELECT subname, pname, time, dname, sseq, dseq
+			FROM(
+    			SELECT row_number() over(ORDER BY subname) rn,subname, pname, time, dname, sseq,dseq
+   				 FROM search_major
+    				WHERE dseq =#{dseq}
+		    			AND (subname LIKE '%'||#{key}||'%'
+    					OR pname LIKE '%'||#{key} ||'%'))
+    		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
+			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	
+	<!-- 검색 결과 전공 과목의 갯수 -->
+	<select id="countSearchMajorList" parameterType="hashMap" resultType="int">
+		SELECT COUNT(*) FROM search_major
+		 WHERE dseq = #{dseq}
+		 	 AND (subname LIKE '%'||#{key}||'%'
+			 	OR pname LIKE '%'||#{key} ||'%')
+		 	
 	</select>
 </mapper>
 
