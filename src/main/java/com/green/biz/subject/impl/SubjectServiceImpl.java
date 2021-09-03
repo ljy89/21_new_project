@@ -101,5 +101,11 @@ public class SubjectServiceImpl implements SubjectService {
 		return sDao.countSearchMajorList(key, dseq);
 	}
 
+	@Override
+	public SubjectVO getSubjectInfo(int sseq) {
+		
+		return sDao.getSubjectInfo(sseq);
+	}
+
 
 }

@@ -49,34 +49,47 @@
 	  </div>
         
         <!-- 슬라이드 끝 -->
-        <div id="contents">
+        <!-- 공지 목록 시작 -->
+         <div id="contents">
           <div id="tabMenu">
             <input type="radio" id="tab1" name="tabs" checked>
             <label for="tab1">공지사항</label>
             <input type="radio" id="tab2" name="tabs">
-            <label for="tab2">Q&A</label>      
+            <label for="tab2">자유게시판</label>      
             <div id="notice" class="tabContent">
-              <h2>공지사항 내용입니다.</h2>
-              <ul>            
-                <li>사무실을 이전했습니다</li>
-                <li>[참가 모집] 카약 체험에 초대합니다.</li>
-                <li>[참가 모집] 여름 방학 기간, 오름 체험단을 모집합니다.</li>
-                <li>겨울, 추천 여행지</li>
-                <li>가을, 추천 여행지</li>            
-              </ul>
-            </div>
-            <div id="gallery" class="tabContent">
-              <h2>갤러리 내용입니다.</h2>
+              <h2>공지사항</h2>
+              <form name="fmm" id="index_ann_form" method="post">
+              <c:forEach items="${annList}" var="announcementVO">
               <ul>
-                <li><img src="images/img-1.jpg"></li>
-                <li><img src="images/img-2.jpg"></li>
-                <li><img src="images/img-3.jpg"></li>
-                <li><img src="images/img-1.jpg"></li>
-                <li><img src="images/img-2.jpg"></li>
-                <li><img src="images/img-3.jpg"></li>                     
+                <li>
+                	<input type="hidden" name="aseq" value="${announcementVO.aseq}">
+                	<a href="#" onclick="index_ann_detail('${announcementVO.aseq}')">
+    	 				${announcementVO.subject}     
+   					</a>
+   				</li>
               </ul>
+              </c:forEach> 
+              </form>
+            </div>
+            <!-- 공지 끝 -->
+            <!-- 게시판 목록 시작 -->
+             <div id="gallery" class="tabContent">
+              <h2>자유 게시판</h2>
+              <form name="fmm" id="index_board_form" method="post">
+              <c:forEach items="${noticeList}" var="noticeVO">
+	              <ul>
+	               <li>
+                	<input type="hidden" name="nseq" value="${noticeVO.nseq}">
+                	<a href="#" onclick="index_board_detail('${noticeVO.nseq}')">
+    	 				${noticeVO.subject}     
+   					</a>
+   				</li>          
+	              </ul>
+	           </c:forEach> 
+              </form>
             </div>        
           </div>
+          <!-- 게시판 목록 끝 -->
           <div id="links">
             <ul>
               <li>

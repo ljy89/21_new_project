@@ -65,4 +65,10 @@ public class AnnounceSerivceImpl implements AnnouncementService {
 		
 	}
 
+	@Override
+	public List<AnnouncementVO> indexAcc() {
+		
+		return aDao.indexAcc();
+	}
+
 }

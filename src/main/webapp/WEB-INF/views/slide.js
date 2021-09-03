@@ -26,3 +26,19 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";
   dots[slideIndex-1].className += " active";
 }
+
+
+/*
+ * 상세 페이지로 이동
+ * */
+function index_ann_detail(aseq) {
+	
+	
+	$("#index_ann_form").attr("action", "announcement_detail?aseq="+aseq).submit();
+}
+
+function index_board_detail(nseq) {
+	
+	
+	$("#index_board_form").attr("action", "board_detail?nseq="+nseq).submit();
+}

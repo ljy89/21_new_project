@@ -246,10 +246,21 @@ button:hover {
     margin-left: 30px;
 }
 #notice ul li {
-    font-size: 14px;
+    font-size: 16px;
 }
+
+/*
 #gallery ul li {
     display:inline;
+}
+*/
+
+#gallery ul {
+    list-style: disc;
+    margin-left: 30px;
+}
+#gallery ul li {
+    font-size: 16px;
 }
 #tab1:checked~#notice,
 #tab2:checked~#gallery {

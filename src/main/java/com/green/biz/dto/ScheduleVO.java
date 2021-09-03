@@ -4,6 +4,12 @@ public class ScheduleVO {
 	private String subject; //과목
 	private String assigned_class; //수업시간
 
+	public ScheduleVO(String assigned_class) {
+		
+		this.assigned_class = assigned_class;
+	}
+	
+	
 	public ScheduleVO(String subject, String assigned_class) {
 		this.subject = subject;
 		this.assigned_class = assigned_class;

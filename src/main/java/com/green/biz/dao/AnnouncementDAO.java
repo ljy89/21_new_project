@@ -52,4 +52,8 @@ public class AnnouncementDAO {
 	public int countAnnounceList(String key) {
 		return mybatis.selectOne("AnnouncementDAO.countAnnounceList", key);
 	}
+	
+	public List<AnnouncementVO> indexAcc(){
+		return mybatis.selectList("AnnouncementDAO.indexAcc");
+	}
 }

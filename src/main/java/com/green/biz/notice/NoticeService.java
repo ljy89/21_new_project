@@ -22,4 +22,6 @@ public interface NoticeService {
 	public List<NoticeVO> getBoardListWithPaging(Criteria criteria, String key);
 	
 	public int countBoardList(String key);
+	
+	public List<NoticeVO> indexnotice();
 }

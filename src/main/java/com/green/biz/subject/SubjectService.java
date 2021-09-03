@@ -35,5 +35,5 @@ public interface SubjectService {
 	
 	public int countSearchMajorList(String key, int dseq);
 	
-	
+	public SubjectVO getSubjectInfo(int sseq);
 }

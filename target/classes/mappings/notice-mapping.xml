@@ -67,4 +67,15 @@
 		WHERE subject LIKE '%'||#{key}||'%'
     		OR id LIKE '%'||#{key} ||'%'
 	</select>
+	
+	<!-- 게시판글 최근 5개만 조회 -->
+	<select id="indexnotice" resultType="notice">
+	<![CDATA[
+		SELECT ROWNUM, a.*
+		FROM (SELECT subject, nseq
+				FROM notice
+				ORDER BY nseq DESC) a
+		WHERE ROWNUM <= 5
+		]]>
+	</select>
 </mapper>

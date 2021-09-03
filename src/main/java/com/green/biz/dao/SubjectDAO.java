@@ -106,6 +106,10 @@ public class SubjectDAO {
 	public int countliberalArtsLisList(String key) {
 		return mybatis.selectOne("SubjectDAO.countliberalArtsLisList", key);
 	}
+	
+	public SubjectVO getSubjectInfo(int sseq) {
+		return mybatis.selectOne("SubjectDAO.getSubjectInfo", sseq);
+	}
 }
 
 

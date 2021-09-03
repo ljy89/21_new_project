@@ -21,4 +21,6 @@ public interface AnnouncementService {
 	public List<AnnouncementVO> getAnnounceListWithPaging(Criteria criteria, String key);
 	
 	public int countAnnounceList(String key);
+	
+	public List<AnnouncementVO> indexAcc();
 }

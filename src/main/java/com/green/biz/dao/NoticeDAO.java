@@ -56,6 +56,10 @@ public class NoticeDAO {
 	public int countBoardList(String key) {
 		return mybatis.selectOne("NoticeDAO.countBoardList", key);
 	}
+	
+	public List<NoticeVO> indexnotice() {
+		return mybatis.selectList("NoticeDAO.indexnotice");
+	}
 }
 
 

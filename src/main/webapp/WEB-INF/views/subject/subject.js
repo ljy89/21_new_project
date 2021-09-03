@@ -51,16 +51,16 @@ var count = 0;	// 삭제할 항목의 갯수
 	 * 체크가 하나도 안되어 있으면 삭제 처리 불가하도록 구현
 	 */
 	// 삭제할 항목이 0또는 하나만 체크되어 있을 경우
-	if (document.formm.rdseq.length == undefined) {
+	if (document.frm.rdseq.length == undefined) {
 		// rdseq가 하나만 체크가 되어 있는 경우
-		if (document.formm.rdseq.checked == true) {
+		if (document.frm.rdseq.checked == true) {
 			count++;
 		}
 	}
 	
 	// 삭제할 항목이 2개 이상인 경우 
-	for (var i=0; i<document.formm.rdseq.length; i++) {
-		if (document.formm.rdseq[i].checked == true) {
+	for (var i=0; i<document.frm.rdseq.length; i++) {
+		if (document.frm.rdseq[i].checked == true) {
 			count++;
 		}
 	}

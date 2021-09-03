@@ -64,4 +64,10 @@ public class NoticeServiceImpl implements NoticeService {
 		return nDao.countBoardList(key);
 	}
 
+	@Override
+	public List<NoticeVO> indexnotice() {
+		
+		return nDao.indexnotice();
+	}
+
 }

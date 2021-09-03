@@ -136,5 +136,12 @@
 			 	OR pname LIKE '%'||#{key} ||'%')
 		 	
 	</select>
+	
+	<!-- sseq로 모든 과목 정보 조회 -->
+	<select id="getSubjectInfo" parameterType="int" resultType="subject">
+		SELECT *
+		FROM subject
+		WHERE sseq = #{sseq}
+	</select>
 </mapper>
 

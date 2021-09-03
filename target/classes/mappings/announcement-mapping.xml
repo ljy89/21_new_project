@@ -65,4 +65,14 @@
     		
 	</select>
 	
+	<!-- 공지글 최근 5개만 조회 -->
+	<select id="indexAcc" resultType="announcement">
+	<![CDATA[
+		SELECT ROWNUM, a.*
+		FROM (SELECT subject, aseq
+				FROM announcement
+				ORDER BY aseq DESC) a
+		WHERE ROWNUM <= 5
+		]]>
+	</select>
 </mapper>
