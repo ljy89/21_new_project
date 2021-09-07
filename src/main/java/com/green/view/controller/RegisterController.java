@@ -40,15 +40,16 @@ public class RegisterController {
 		List<ScheduleVO> scheList = new ArrayList<>();
 		int rseq = 0;
 		int sseq = 0;
-		String url = "redirect:register_list";
+		//String url = "redirect:register_list";
+		String url = "cart/check";
 		String time = null;
 		boolean flag = true;
-		String message = null;
+		
 		
 		StudentVO loginUser = (StudentVO) session.getAttribute("loginUser");
 		
 		if(loginUser == null) { //로그인이 안되어있으면 로그인 페이지로 이동
-			url = "student/login";
+			return "student/login";
 		}else {
 			for (int i=0; i<cseqArr.length; i++) { //cssArr 배열 수만큼 반복
 				System.out.println("cart seq=" + cseqArr[i]);
@@ -62,7 +63,7 @@ public class RegisterController {
 				
 				if(result != null) { // 이미 수강 신청된 과목 수강 테이블에 insert 하지 않음
 					System.out.println("cart seq=" + cseqArr[i]+"이미 수강 신청되어있습니다.");
-					message = "이미 수강 신청한 과목입니다";
+					model.addAttribute("message", 1);
 				}else {
 					
 					subVo = subjectService.getSubjectInfo(sseq); // sseq로 과목 정보 모두 조회
@@ -81,15 +82,20 @@ public class RegisterController {
 
 					for (ScheduleVO schevo : scheList) {
 
-						if ((time.substring(0, 1)).equals(schevo.getAssigned_class().substring(0, 1))) {
+						if ((time.charAt(0)) == (schevo.getAssigned_class().charAt(0))) {
+							System.out.println("time.charAt(0)" +time.charAt(0));
+							System.out.println("schevo.getAssigned_class().charAt(0)"+schevo.getAssigned_class().charAt(0));
 							// 요일이 같다면 123 시간 비교
 							for (int n = 1; n < time.length(); n++) {
 								for (int m = 1; m < schevo.getAssigned_class().length(); m++) {
 
-									if (time.substring(n, n).equals(schevo.getAssigned_class().substring(m, m))) {
+									if (time.charAt(n) == (schevo.getAssigned_class().charAt(m))) {
+										System.out.println("time.charAt(n) :"+n+":"+time.charAt(n));
+										System.out.println("schevo.getAssigned_class().charAt(m) :"+m+":"+schevo.getAssigned_class().charAt(m));
 										// 요일이 같고 시간 중복되는 경우가 생기면
 										flag = false;
 										System.out.println("중복되는 시간이 있습니다");
+										model.addAttribute("message", -1);
 										break; // 수강신청 테이블에 insert 하지 않음
 
 									}
@@ -107,6 +113,7 @@ public class RegisterController {
 						vo.setSid(loginUser.getSid());
 						rseq = registerService.insertRegister(vo, cseqArr);
 						System.out.println("insert");
+						model.addAttribute("message", 0);
 					}
 
 				}
@@ -114,11 +121,12 @@ public class RegisterController {
 			}
 
 			model.addAttribute("rseq" , rseq);
-		
+			return url;
 		}
-		return url;
+		
 		
 	}
+	
 	
 	@RequestMapping(value="/register_list")
 	public String registerList(@RequestParam(value="rseq") int rseq, HttpSession session,

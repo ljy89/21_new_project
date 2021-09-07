@@ -24,7 +24,7 @@ margin-left: 110px;
 
 </style>
 <script type="text/javascript">
-function pop_close(){
+function cart_pop_close(){
   
   self.close();
 }
@@ -43,22 +43,22 @@ function pop_close(){
         </script>
         ${register.subname} 이미 수강 신청한 과목입니다<br><br>
         <div class="pop_button">
-        	 <input type="button" class="submit" value="확인" class="cancel" onclick="pop_close()">
+        	 <input type="button" class="submit" value="확인" class="cancel" onclick="cart_pop_close()">
         </div>
       </c:if>
       
-      <c:if test="${message==0}">
+      <c:if test="${message==-1}">
         ${register.subname} 시간에 수강 신청한 과목이 있습니다<br><br>
         <div class="pop_button">
-        	<input type="button" class="submit" value="확인" class="cancel" onclick="pop_close()">
+        	<input type="button" class="submit" value="확인" class="cancel" onclick="cart_pop_close()">
         </div>
         
       </c:if>
       
-      <c:if test="${message==-1}">
+      <c:if test="${message==0}">
         ${register.subname} 수강 신청이 완료되었습니다.<br><br>
         <div class="pop_button">
-        	<input type="button" class="submit" value="확인" class="cancel" onclick="pop_close()">
+        	<input type="button" class="submit" value="확인" class="cancel" onclick="cart_pop_close()">
         </div>
         
       </c:if>

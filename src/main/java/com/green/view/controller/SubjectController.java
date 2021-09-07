@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.green.biz.dto.RegisterVO;
+import com.green.biz.dto.ScheduleVO;
 import com.green.biz.dto.StudentVO;
 import com.green.biz.dto.SubjectVO;
 import com.green.biz.register.RegisterService;
@@ -196,12 +197,15 @@ public class SubjectController {
 	*/
 	@RequestMapping(value="/register_check_form")
 	public String idCheckAction(@RequestParam(value="sseq", defaultValue="", required=true) int sseq, 
-								HttpSession session,Model model, RegisterVO vo) {
+								HttpSession session,Model model, RegisterVO vo, SubjectVO subVo) {
 		
 		
 		StudentVO loginUser = (StudentVO)session.getAttribute("loginUser");
-		
+			
+			List<ScheduleVO> scheList = new ArrayList<>();
+			String time = null;
 			int rseq = 0;
+			boolean flag = true;
 			
 			vo.setSseq(sseq);
 			vo.setSid(loginUser.getSid());
@@ -212,12 +216,59 @@ public class SubjectController {
 			if (register != null) {
 				model.addAttribute("message", 1);
 				model.addAttribute("register", register);
-			} else {
-				model.addAttribute("message", -1);
-				model.addAttribute("register", register);
+			} else { //수강 신청 한 과목이 아닐때
 				
-				rseq = registerService.goInsertRegister(vo,sseq);
-				model.addAttribute("rseq" , rseq);
+				subVo = subjectService.getSubjectInfo(sseq); // sseq로 과목 정보 모두 조회
+				time = subVo.getTime();
+				System.out.println(time);
+				
+				List<RegisterVO> registerList = registerService.listRegisterById(loginUser.getSid());
+				// 해당 학생이 이미 수강한 내용을 리스트에 저장
+
+				for (RegisterVO registerVo : registerList) {
+
+					ScheduleVO sVO = new ScheduleVO(registerVo.getTime()); // 객체에 수강 신청 한 시간들을 모두 저장
+					scheList.add(sVO);
+
+				}
+				
+				for (ScheduleVO schevo : scheList) {
+
+					if ((time.charAt(0)) == (schevo.getAssigned_class().charAt(0))) {
+						// 요일이 같다면 123 시간 비교
+						for (int n = 1; n < time.length(); n++) {
+							for (int m = 1; m < schevo.getAssigned_class().length(); m++) {
+
+								if (time.charAt(n) == (schevo.getAssigned_class().charAt(m))) {
+									// 요일이 같고 시간 중복되는 경우가 생기면
+									flag = false;
+									model.addAttribute("message", 0);
+									System.out.println("중복되는 시간이 있습니다");
+									break; // 수강신청 테이블에 insert 하지 않음
+
+								}
+
+							}
+						}
+					} else {
+						// 요일이 다르면
+						continue;
+					}
+
+				}
+				
+				
+				if (flag == true) { // 중복되는 시간이 없었으면 insert
+					model.addAttribute("message", -1);
+					model.addAttribute("register", register);
+					
+					rseq = registerService.goInsertRegister(vo,sseq);
+					model.addAttribute("rseq" , rseq);
+					
+					System.out.println("insert");
+				}
+				
+				
 			}
 			
 				model.addAttribute("sseq", sseq);

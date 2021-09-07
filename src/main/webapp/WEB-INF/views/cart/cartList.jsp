@@ -18,7 +18,7 @@
         
         <c:forEach items="${cartList}"  var="cartVO">
         <tr>  
-          <td> <span style="padding-left: 60px"><input type="checkbox" name="cseq" value= "${cartVO.cseq}"></span>     
+          <td> <span style="padding-left: 60px"><input id="cseq" type="checkbox" name="cseq" value= "${cartVO.cseq}"></span>     
           <td>
             <a href="subject_detail?sseq=${cartVO.sseq}">
                ${cartVO.dname}              
@@ -40,7 +40,7 @@
       <!-- <input type="button" value="목록으로" class="cancel" onclick="location.href='index'">  -->   
       <c:if test= "${cartList.size() != 0}">
       <input type="button" value="삭제하기"  class="submit" onclick="go_cart_delete()">
-      <input type="button" value="수강신청"  class="submit" onclick="go_register_insert()">
+      <input type="button" value="수강신청"  class="submit" onclick="cart_register_check_form()">
       </c:if>
      </div>
     </form>

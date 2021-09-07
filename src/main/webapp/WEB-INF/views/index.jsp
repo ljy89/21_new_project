@@ -80,6 +80,7 @@
 	              <ul>
 	               <li>
                 	<input type="hidden" name="nseq" value="${noticeVO.nseq}">
+                	<!-- <a href="javascript:index_board_detail('${noticeVO.nseq}')"> -->
                 	<a href="#" onclick="index_board_detail('${noticeVO.nseq}')">
     	 				${noticeVO.subject}     
    					</a>
