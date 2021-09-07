@@ -13,7 +13,11 @@ public class AfterReturningAdvice {
 	public void afterLog(JoinPoint jp, Object returnObj) {
 		
 		String method = jp.getSignature().getName();
+		if(returnObj != null) {
+			System.out.printf("[AFTER] : %s(),리턴값 : %s \n", method, returnObj.toString());
+		}else {
+			System.out.printf("[AFTER] : %s(),리턴값 : 없음 \n", method);
+		}
 		
-		System.out.printf("[AFTER] : %s(),리턴값 : %s \n", method, returnObj.toString());
 	}
 }
