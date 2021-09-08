@@ -31,6 +31,8 @@
 <input class="btn"  type="button" value="목록" onClick="go_list('${criteria.pageNum}', '${criteria.rowsPerPage}')">     -->        
 </form>
 </article>
+<!-- 댓글 처리 -->
+<%@ include file="comment.jsp" %>  
 <%@ include file="../footer.jsp"%>
 </body>
 </html>
