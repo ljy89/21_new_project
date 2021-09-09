@@ -40,6 +40,13 @@
 				<td>${subjectVO.location}</td>
 			</tr>
 		    
+		    <tr>
+		    <!-- 지도[s] -->    
+		    	<td colspan="2">
+		    		<div id="map" style="width:680px;height:260px; margin:auto; margin-top:10px;"></div>
+		    	</td>
+		    </tr>
+		    
 		     <!--[7]<tr>
 		     <th>상품이미지</th>
 		     <td colspan="5" align="center">
@@ -64,6 +71,34 @@
 
 <%@ include file="../footer.jsp"%>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b689048b4155877ce6273042dc0db7f9"></script>
+    	<script>
+    		
+		    var container = document.getElementById('map'); //지도 표시 div
+		    var options = {
+		          center: new kakao.maps.LatLng(37.45662871370984, 126.95003849700157), //지도의 중심좌표
+		          level: 3 //지도의 확대 레벨
+		       };
+		 
+		    var map = new kakao.maps.Map(container, options);
+		        
+		        // 마커가 표시될 위치
+		    var markerPosition  = new kakao.maps.LatLng(37.45662871370984, 126.95003849700157); 
+		 
+		        // 마커 생성
+		    var marker = new kakao.maps.Marker({
+		            position: markerPosition
+		        });
+		 
+		        // 마커가 지도 위에 표시되도록 설정
+		    marker.setMap(map);
+		 
+		        // 아래 코드는 지도 위의 마커를 제거하는 코드
+		        // marker.setMap(null);  
+		        
+	 </script>
+		    <!-- 지도[e] -->	
+		    
 </body>
 </html>
 
