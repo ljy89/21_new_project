@@ -18,7 +18,7 @@
 	
 	<!-- 상세페이지 -->
 	<select id="getSubject" resultType="subject">
-		SELECT s.name subname, p.name pname, s.content, s.time, s.location, d.name dname, s.sseq
+		SELECT s.name subname, p.name pname, s.content, s.time, s.location, d.name dname, s.sseq, d.dseq dseq
 		FROM subject s, professor p, department d
 		WHERE sseq=#{sseq}
 		AND s.dseq = d.dseq
