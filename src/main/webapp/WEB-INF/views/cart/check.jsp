@@ -23,10 +23,11 @@ margin-left: 110px;
 }
 
 </style>
+<script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 function cart_pop_close(){
-  
-  self.close();
+	$(opener.document).find("#theform").attr("action", "cart_list").submit();
+  	self.close();
 }
 </script>
 </head>

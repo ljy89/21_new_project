@@ -98,9 +98,9 @@ var url="register_insert?";
 		if(count==1){
 			if (document.formm.cseq.checked == true) {
 				choice =document.formm.cseq.value;
-				alert("choice = "+choice);
+				//alert("choice = "+choice);
 				choice = Number(choice);
-				alert("choice = "+choice);
+				//alert("choice = "+choice);
 				url = url+"cseq="+choice;
 			}
 		}
@@ -110,16 +110,16 @@ var url="register_insert?";
 			if (document.formm.cseq[i].checked == true) {
 					
 					choice =document.formm.cseq[i].value;
-					alert("choice = "+choice);
+					//alert("choice = "+choice);
 					choice = Number(choice);
-					alert("choice = "+choice);
+					//alert("choice = "+choice);
 					url = url+"cseq="+choice+"&";
 				
 			}
 		}
 		
 		//url = url+choice;
-		alert("url = "+url);
+		//alert("url = "+url);
 		
 		
 		
