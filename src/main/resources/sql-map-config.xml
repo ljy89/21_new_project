@@ -14,7 +14,10 @@
 		<typeAlias type="com.green.biz.dto.NoticeVO" alias="notice"></typeAlias>
 		<typeAlias type="com.green.biz.dto.ProfessorVO" alias="professor"></typeAlias>
 		<typeAlias type="com.green.biz.dto.AnnouncementVO" alias="announcement"></typeAlias>	
-		<typeAlias type="com.green.biz.dto.NoticeCommentVO" alias="comment"></typeAlias>				
+		<typeAlias type="com.green.biz.dto.NoticeCommentVO" alias="comment"></typeAlias>
+		<typeAlias type="com.green.biz.dto.SeasonSubjectVO" alias="season"></typeAlias>	
+		<typeAlias type="com.green.biz.dto.SeasonCartVO" alias="seasoncart"></typeAlias>	
+		<typeAlias type="com.green.biz.dto.SeasonOrderVO" alias="order"></typeAlias>					
 	</typeAliases>
 	
 	<mappers>
@@ -29,5 +32,8 @@
 		<mapper resource="mappings/professor-mapping.xml" />
 		<mapper resource="mappings/announcement-mapping.xml" />
 		<mapper resource="mappings/comment-mapping.xml" />
+		<mapper resource="mappings/season-mapping.xml" />
+		<mapper resource="mappings/seasoncart-mapping.xml" />
+		<mapper resource="mappings/order-mapping.xml" />
 	</mappers>
 </configuration>

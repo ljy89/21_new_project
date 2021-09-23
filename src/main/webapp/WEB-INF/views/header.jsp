@@ -8,15 +8,16 @@
   <meta charset="UTF-8">
   <title>학사관리 시스템</title>
   <link rel="stylesheet" href="css/system.css" >  
-  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script> 
+   <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script> 
    <script type="text/javascript" src="student/member.js"></script>
    <script type="text/javascript" src="subject/subject.js"></script>
    <script type="text/javascript" src="cart/cart.js"></script>
    <script type="text/javascript" src="professor/professor.js"></script>
    <script type="text/javascript" src="score/score.js"></script>
    <script type="text/javascript" src="notice/notice.js"></script>
+   <script type="text/javascript" src="season/season.js"></script>
    <script type="text/javascript" src="admin/announcement/announcement.js"></script>
-  <script type="text/javascript" src="slide.js"></script>
+   <script type="text/javascript" src="slide.js"></script>
 </head>
 
 <body>
@@ -61,6 +62,7 @@
                 <ul>
                   <li><a href="major_list">전공과목</a></li>
                   <li><a href="liberalArts_list">교양과목</a></li>
+                  <li><a href="season">계절학기</a></li>
                 </ul>
               </li>
               <li><a href="#">수강신청내역 <span>▼</span></a>

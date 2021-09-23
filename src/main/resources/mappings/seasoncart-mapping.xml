@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SeasonCartDAO">
+	
+	<insert id="insertCart">
+		INSERT INTO season_cart(secseq, id, seseq)
+		VALUES(secseq.NEXTVAL, #{sid}, #{seseq})
+	</insert>
+	
+
+	<select id="getSeaonCartList" parameterType="String" resultType="seasoncart">
+		SELECT * FROM season_cart_view
+		WHERE sid = #{sid}
+	</select>
+	
+	<select id="getCartPrice" parameterType="int" resultType="int">
+		SELECT price FROM season_cart_view
+		  WHERE secseq = #{secseq}
+	</select>
+	
+	<delete id="deleteCart" parameterType="int">
+		DELETE FROM season_cart
+		WHERE secseq=#{secseq}
+	</delete>
+	
+	<update id="updateCart" parameterType="int">
+		UPDATE season_cart SET result='2'
+		 WHERE secseq=#{secseq} 
+	</update>
+
+
+</mapper>

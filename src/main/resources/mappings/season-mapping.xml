@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SeasonDAO">
+
+	<!-- 계절학기 과목 모두 조회-->
+	<select id="getSeasonList" resultType="season">
+		SELECT *
+		FROM search_season_subject
+	</select>
+	
+	<!-- 상세페이지 -->
+	<select id="getSeasonSubject" resultType="season">
+		SELECT s.name seasonname, p.name pname, s.content, s.time, s.price, s.location, d.name dname, 
+				s.seseq, d.dseq dseq
+		FROM season_subject s, professor p, department d
+		WHERE seseq=#{seseq}
+			AND s.dseq = d.dseq
+			AND p.id = s.id
+	</select>
+	
+	<!-- 수업 추가 -->
+	
+	<insert id="insertSeasonSubject">
+		INSERT INTO season_subject(seseq, name, id, time, price, content, dseq, location)
+		VALUES(season_subject_seq.NEXTVAL, #{seasonname}, #{pid}, #{time}, #{price}, #{content}, #{dseq}, #{location})
+	</insert>
+	
+	<!-- 수업 수정 -->
+	<update id="updateSeasonSubject">
+		UPDATE season_subject 
+		SET name= #{subname}, id=#{pid} , time =#{time},price= #{price}, content =#{content} , 
+			dseq=#{dseq}, location =#{location}
+		WHERE seseq=#{seseq} 
+	</update>
+	
+	<!-- 조회한 총 계절 과목의 갯수 -->
+	<select id="countSeasonList" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM search_season_subject
+		 WHERE seasonname LIKE '%'||#{key}||'%'
+		 	OR pname LIKE '%'||#{key} ||'%'
+	</select>
+	
+	<!-- 페이지 번호별 계절 목록 -->
+	
+	<select id="seasonListWithPaging" parameterType="hashMap" resultType="season">
+	<![CDATA[
+		SELECT seasonname, pname, time, dname, seseq
+			FROM(
+    			SELECT row_number() over(ORDER BY seasonname) rn,seasonname, pname, time, dname, seseq
+   				 FROM search_season_subject
+    				WHERE seasonname LIKE '%'||#{key}||'%'
+    					OR pname LIKE '%'||#{key} ||'%')
+    		WHERE rn <= #{criteria.pageNum} * #{criteria.rowsPerPage}
+			AND rn > (#{criteria.pageNum}-1) * #{criteria.rowsPerPage}
+		]]>
+	</select>
+	
+	<select id="getPrice" parameterType="int" resultType="int">
+		SELECT price 
+		FROM season_subject 
+		WHERE seseq = #{seseq}
+	</select>
+</mapper>

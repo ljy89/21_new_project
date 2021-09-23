@@ -25,7 +25,7 @@
 	<c:otherwise>
 	<c:forEach items="${scoreList}" var="scoreVO">
     <tr>
-      <td>${scoreVO.dname}</td>
+      <td>${scoreVO.subname}</td>
       <td>${scoreVO.pname}</td>
    	  <td>${scoreVO.score}</td>
     </tr>
