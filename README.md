@@ -16,12 +16,20 @@
 - WAS : Apache Tomcat
 - OS : Windows10
 
+>### 프로젝트에서 역할
+- 프로젝트 기획, 구현, 리딩, 테스트
 >### 상세화면
 
 |기능|화면|
 |--|--|
-|index||
-|수강신청||
-|계절학기결제||
-|댓글작성||
-|시간표||
+|index|![index](https://user-images.githubusercontent.com/74636104/135705221-c8d27681-53a8-40fc-afe7-958cc76e3ed3.gif)|
+|수강신청|![register](https://user-images.githubusercontent.com/74636104/135705679-4db69234-43af-4dce-84f2-8cdd2540c4d3.gif)|
+|계절학기결제|<img width="620" alt="결제" src="https://user-images.githubusercontent.com/74636104/135705860-ee2b125a-bb04-41bb-b782-e5a91e64431f.PNG">|
+|댓글작성|<img width="620" alt="상세페이지4" src="https://user-images.githubusercontent.com/74636104/135705740-fba04d1e-0efd-4151-acd0-27ddb9e5bb46.PNG">|
+|시간표|<img width="620" alt="상세페이지2" src="https://user-images.githubusercontent.com/74636104/135705748-63423efc-55af-44a1-937c-9f978d31e8ba.PNG">|
+
+
+
+
+
+
